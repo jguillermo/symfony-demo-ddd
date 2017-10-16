@@ -1,29 +1,49 @@
-# README #
+Accounting
+==========
 
-This README would normally document whatever steps are necessary to get your application up and running.
 
-### What is this repository for? ###
+# Docker Seed
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## Install
 
-### How do I get set up? ###
+```bash
+$ ./scripts/tasks.build.sh
+```
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+```bash
+make start
+```
 
-### Contribution guidelines ###
+```bash
+$ ./scripts/tasks.migration.sh migrate
+$ ./scripts/tasks.migration.sh generate
+$ ./scripts/tasks.migration.sh status
+```
 
-* Writing tests
-* Code review
-* Other guidelines
+```bash
+make composer-update
+```
 
-### Who do I talk to? ###
+```bash
+./docker/scripts/tasks.console.sh doctrine:schema:update --force
+```
 
-* Repo owner or admin
-* Other community or team contact
+```bash
+./docker/scripts/tasks.console.sh generate:bundle --namespace=Persons/Infrastructure/Ui/PersonsBundle --format=annotation --dir=src --bundle-name=PersonsBundle --shared  --no-interaction
+```
+
+```bash
+./docker/scripts/tasks.console.sh generate:bundle --namespace=Misa/Users/Infrastructure/Ui/UsersBundle --format=annotation --dir=src --bundle-name=UsersBundle --shared  --no-interaction
+```
+
+## Open
+http://localhost:8085/
+
+##ejecutar por problemas de acceso a solr
+sudo chmod o+w -R solr
+
+
+###borrar cache de git
+```bash
+git rm -rf --cached .
+```
