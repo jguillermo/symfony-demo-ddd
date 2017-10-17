@@ -1,7 +1,7 @@
 version: '2'
 services:
   cli:
-    image: jguillermo/demo-app:cli
+    image: jguillermo/misa-accounting:cli
     environment:
         - DEV_UID=${DEV_UID}
         - DEV_GID=${DEV_GID}

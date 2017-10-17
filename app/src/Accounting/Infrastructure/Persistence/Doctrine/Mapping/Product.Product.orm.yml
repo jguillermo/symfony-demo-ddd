@@ -1,0 +1,20 @@
+Misa\Accounting\Domain\Product\Product:
+    type: entity
+    table: product_product
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        name:
+            type: string
+            length: '50'
+    manyToOne:
+        item:
+            targetEntity: Misa\Accounting\Domain\Product\Item
+            joinColumns:
+                item_id:
+                    referencedColumnName: id
+    lifecycleCallbacks: {  }

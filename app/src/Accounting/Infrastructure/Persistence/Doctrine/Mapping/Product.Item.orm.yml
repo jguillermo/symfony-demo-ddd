@@ -1,0 +1,17 @@
+Misa\Accounting\Domain\Product\Item:
+    type: entity
+    table: product_item
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        description:
+            type: string
+            length: '50'
+        code:
+            type: string
+            length: '10'
+    lifecycleCallbacks: {  }

@@ -45,8 +45,11 @@ test: ## Execute integration test
 cache: ## Pull all images from registry
 	./script.sh composer cache:clear
 
-frontend-build: ## Run build frontend task
-	./script.sh yarn build
+cs: ## add permission folder var
+	./script.sh composer cs
+
+cs-fix: ## add permission folder var
+	./script.sh composer cs-fix
 
 clean: ## Clear containers
 	docker container prune -f ; \

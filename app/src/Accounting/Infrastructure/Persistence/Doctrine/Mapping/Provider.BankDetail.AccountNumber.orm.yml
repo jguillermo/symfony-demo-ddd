@@ -1,0 +1,10 @@
+Misa\Accounting\Domain\Provider\BankDetail\AccountNumber:
+    type: embeddable
+    fields:
+        number:
+            type: string
+            length: '25'
+        interbank:
+            type: string
+            length: '25'
+    lifecycleCallbacks: {  }

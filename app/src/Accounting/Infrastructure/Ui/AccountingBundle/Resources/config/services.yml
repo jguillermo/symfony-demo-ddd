@@ -1,0 +1,28 @@
+services:
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Misa\Accounting\Infrastructure\Ui\AccountingBundle\Controller\:
+        resource: '../../Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+
+    ###    services
+    Misa\Accounting\Application\Services\Provider\MngService: ~
+
+
+    ###   repository
+    accounting.provider.bank:
+        class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderBankDoctrineRepository
+        arguments: {$entityName: 'Misa\Accounting\Domain\Provider\BankDetail\Bank'}
+
+    accounting.product:
+        class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProductDoctrineRepository
+        arguments: {$entityName: 'Misa\Accounting\Domain\Product\Product'}
+
+    accounting.provider:
+        class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderDoctrineRepository
+        arguments: {$entityName: 'Misa\Accounting\Domain\Provider\Provider'}

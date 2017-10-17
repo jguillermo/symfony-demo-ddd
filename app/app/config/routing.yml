@@ -1,4 +1,4 @@
-users:
+accounting:
     type:     rest
-    prefix:   "v1/users"
-    resource: "@UsersBundle/Resources/config/routing.yml"
+    prefix:   "v1/accounting"
+    resource: "@AccountingBundle/Resources/config/routing.yml"

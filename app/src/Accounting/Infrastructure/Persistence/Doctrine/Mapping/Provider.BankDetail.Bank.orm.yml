@@ -1,0 +1,14 @@
+Misa\Accounting\Domain\Provider\BankDetail\Bank:
+    type: entity
+    table: provider_bankdetail
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        name:
+            type: string
+            length: '50'
+    lifecycleCallbacks: {  }

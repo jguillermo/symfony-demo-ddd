@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Nelmio\SolariumBundle\NelmioSolariumBundle(),
-            new Misa\Users\Infrastructure\Ui\UsersBundle\UsersBundle(),
+            new Misa\Accounting\Infrastructure\Ui\AccountingBundle\AccountingBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

@@ -15,16 +15,16 @@ services:
         public: false
 
     misa.inflector.service:
-        class: Misa\Common\Service\MisaInflector
+        class: MisaSdk\Common\Service\MisaInflector
 
     Misa\Common\Service\EncryptService: '@misa.encrypt.service'
     misa.encrypt.service:
-        class: Misa\Common\Service\EncryptService
+        class: MisaSdk\Common\Service\EncryptService
         arguments: { $key: '%app_secret%' }
         autowire: true
 
     Misa\Common\Service\PasswordService: ~
 
     Misa\Common\Service\Auth0:
-        class: Misa\Common\Implement\MisaJwt
+        class: MisaSdk\Common\Implement\MisaJwt
         arguments: ['%app_secret%']

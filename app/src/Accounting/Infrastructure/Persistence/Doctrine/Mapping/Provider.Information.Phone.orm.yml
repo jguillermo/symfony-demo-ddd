@@ -1,0 +1,23 @@
+Misa\Accounting\Domain\Provider\Information\Phone:
+    type: entity
+    table: provider_information_phone
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        number:
+            type: string
+            length: '15'
+        type:
+            type: smallint
+    manyToOne:
+        provider:
+            targetEntity: Misa\Accounting\Domain\Provider\Provider
+            inversedBy: phones
+            joinColumns:
+                provider_id:
+                    referencedColumnName: id
+    lifecycleCallbacks: {  }

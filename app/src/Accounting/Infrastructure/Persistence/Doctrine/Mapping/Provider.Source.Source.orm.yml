@@ -1,0 +1,30 @@
+Misa\Accounting\Domain\Provider\Source\Source:
+    type: entity
+    table: provider_source_source
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        name:
+            type: string
+            length: '100'
+        tradeName:
+            type: string
+            length: '100'
+        address:
+            type: string
+            length: '100'
+        ubigeo:
+            type: string
+            length: '9'
+    embedded:
+       dataDocument:
+           class: Misa\Accounting\Domain\Provider\Source\SourceDocument
+           columnPrefix: document_
+       dataEntity:
+           class: Misa\Accounting\Domain\Provider\Source\SourceEntity
+           columnPrefix: entity_
+    lifecycleCallbacks: {  }

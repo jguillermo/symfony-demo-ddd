@@ -2,14 +2,14 @@ version: '2'
 services:
 
   php:
-      image: jguillermo/demo-app:php
+      image: jguillermo/misa-accounting:php
       volumes:
         - ./app/:/var/www/html
       ports:
         - 8085:80
 
   mysql:
-    image: jguillermo/demo-app:mysql
+    image: jguillermo/misa-accounting:mysql
     environment:
       MYSQL_ROOT_PASSWORD: toord
       MYSQL_USER : root
@@ -20,7 +20,7 @@ services:
       - ./docker/mysql/sql:/docker-entrypoint-initdb.d
 
   solr:
-    image: jguillermo/demo-app:solr
+    image: jguillermo/misa-accounting:solr
     ports:
       - 8983:8983
     volumes:

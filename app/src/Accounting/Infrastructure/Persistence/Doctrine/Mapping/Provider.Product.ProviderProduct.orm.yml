@@ -1,0 +1,25 @@
+Misa\Accounting\Domain\Provider\Product\ProviderProduct:
+    type: entity
+    table: provider_product_providerproduct
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        range:
+            type: smallint
+    manyToOne:
+        provider:
+            targetEntity: Misa\Accounting\Domain\Provider\Provider
+            inversedBy: providerProducts
+            joinColumns:
+                provider_id:
+                    referencedColumnName: id
+        product:
+            targetEntity: Misa\Accounting\Domain\Product\Product
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+    lifecycleCallbacks: {  }

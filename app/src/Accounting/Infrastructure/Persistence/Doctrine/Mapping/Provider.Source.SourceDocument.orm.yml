@@ -1,0 +1,10 @@
+Misa\Accounting\Domain\Provider\Source\SourceDocument:
+    type: embeddable
+    fields:
+        type:
+            type: string
+            length: '10'
+        number:
+            type: string
+            length: '15'
+    lifecycleCallbacks: {  }

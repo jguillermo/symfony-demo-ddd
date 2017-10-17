@@ -1,0 +1,39 @@
+Misa\Accounting\Domain\Provider\Provider:
+    type: entity
+    table: provider_provider
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        contacName:
+            type: string
+            length: '50'
+    oneToOne:
+        source:
+            targetEntity: Misa\Accounting\Domain\Provider\Source\Source
+            fetch: LAZY
+            joinColumns:
+                source_id:
+                    referencedColumnName: id
+            cascade: ["all"]
+    oneToMany:
+        phones:
+            targetEntity: Misa\Accounting\Domain\Provider\Information\Phone
+            mappedBy: provider
+            cascade: ["all"]
+        emails:
+            targetEntity: Misa\Accounting\Domain\Provider\Information\Email
+            mappedBy: provider
+            cascade: ["all"]
+        bankAccounts:
+            targetEntity: Misa\Accounting\Domain\Provider\BankDetail\BankAccount
+            mappedBy: provider
+            cascade: ["all"]
+        providerProducts:
+            targetEntity: Misa\Accounting\Domain\Provider\Product\ProviderProduct
+            mappedBy: provider
+            cascade: ["all"]
+    lifecycleCallbacks: {  }

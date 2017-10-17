@@ -2,7 +2,7 @@ version: '2'
 services:
 
   php:
-      image: jguillermo/demo-app:php
+      image: jguillermo/misa-accounting:php
       volumes:
         - ./app/:/var/www/html
       ports:
@@ -11,7 +11,7 @@ services:
          - mysql
 
   mysql:
-    image: jguillermo/demo-app:mysql
+    image: jguillermo/misa-accounting:mysql
     environment:
       MYSQL_ROOT_PASSWORD: toord
       MYSQL_USER : root
@@ -22,7 +22,7 @@ services:
       - ./docker/mysql/sql:/docker-entrypoint-initdb.d
 
   cli:
-    image: jguillermo/demo-app:cli
+    image: jguillermo/misa-accounting:cli
     environment:
        - DEV_UID=${DEV_UID}
        - DEV_GID=${DEV_GID}
@@ -32,4 +32,4 @@ services:
     depends_on:
        - php
        - mysql
-    command: ["/tmp/wait-for-it.sh", "mysql:3305", "--", "composer test-integration"]
+    command: ["/tmp/wait-for-it.sh", "mysql:3305", "--", "composer integration-test"]

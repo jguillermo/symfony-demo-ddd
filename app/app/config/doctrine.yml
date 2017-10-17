@@ -13,13 +13,13 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: false
         mappings:
-            users:
+            accounting:
                 is_bundle: false
                 mapping: true
                 type: yml
-                dir:  "%kernel.root_dir%/../src/Users/Infrastructure/Persistence/Doctrine/Mapping"
-                prefix: Misa\Users\Domain
-                alias: Users
+                dir:  "%kernel.root_dir%/../src/Accounting/Infrastructure/Persistence/Doctrine/Mapping"
+                prefix: Misa\Accounting\Domain
+                alias: Accounting
 
 doctrine_migrations:
     dir_name: "%kernel.root_dir%/DoctrineMigrations"

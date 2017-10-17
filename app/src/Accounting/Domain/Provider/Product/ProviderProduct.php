@@ -1,0 +1,42 @@
+<?php
+
+namespace Misa\Accounting\Domain\Provider\Product;
+
+use Misa\Accounting\Domain\Product\Product;
+use Misa\Accounting\Domain\Provider\Provider;
+use MisaSdk\Common\Entity\AbstractEntity;
+
+/**
+ * ProviderProduct Class
+ *
+ * @package Misa\Accounting\Domain\Provider\Product
+ * @author Jose Guillermo <jguillermo@outlook.com>
+ * @copyright (c) 2017, Orbis
+ */
+class ProviderProduct extends AbstractEntity
+{
+    const MIN_RANGE = 0;
+
+    /** @var string */
+    private $id;
+
+    /** @var Provider */
+    private $provider;
+
+    /** @var Product */
+    private $product;
+
+    /** @var int */
+    private $range;
+
+
+    public static function create(Provider $provider, Product $product, $id = self::EMPTY_ID)
+    {
+        $providerProduct = new self();
+        $providerProduct->id = self::uuid($id)->getId();
+        $providerProduct->provider = $provider;
+        $providerProduct->product = $product;
+        $providerProduct->range = self::MIN_RANGE;
+        return $providerProduct;
+    }
+}

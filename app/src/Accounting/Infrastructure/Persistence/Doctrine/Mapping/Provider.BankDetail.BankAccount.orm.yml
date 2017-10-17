@@ -1,0 +1,34 @@
+Misa\Accounting\Domain\Provider\BankDetail\BankAccount:
+    type: entity
+    table: provider_bankdetail_bankaccount
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        type:
+            type: smallint
+        money:
+            type: smallint
+        holderName:
+            type: string
+            length: '50'
+    embedded:
+        number:
+            class: Misa\Accounting\Domain\Provider\BankDetail\AccountNumber
+            columnPrefix: number_
+    manyToOne:
+        bank:
+            targetEntity: Misa\Accounting\Domain\Provider\BankDetail\Bank
+            joinColumns:
+                bank_id:
+                    referencedColumnName: id
+        provider:
+            targetEntity: Misa\Accounting\Domain\Provider\Provider
+            inversedBy: bankAccounts
+            joinColumns:
+                provider_id:
+                    referencedColumnName: id
+    lifecycleCallbacks: {  }

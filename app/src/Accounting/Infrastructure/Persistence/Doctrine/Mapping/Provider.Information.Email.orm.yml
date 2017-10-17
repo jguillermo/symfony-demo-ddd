@@ -1,0 +1,21 @@
+Misa\Accounting\Domain\Provider\Information\Email:
+    type: entity
+    table: provider_information_email
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        email:
+            type: string
+            length: '50'
+    manyToOne:
+        provider:
+            targetEntity: Misa\Accounting\Domain\Provider\Provider
+            inversedBy: emails
+            joinColumns:
+                provider_id:
+                    referencedColumnName: id
+    lifecycleCallbacks: {  }
