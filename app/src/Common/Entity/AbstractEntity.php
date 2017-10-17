@@ -17,6 +17,6 @@ abstract class AbstractEntity
      */
     public static function uuid($id = '')
     {
-        return  new MisaUuid($id);
+        return new MisaUuid($id);
     }
 }

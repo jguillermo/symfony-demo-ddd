@@ -1,6 +1,6 @@
 <?php
 
-namespace Misa\Users\Infrastructure\SearchEngine\Solr;
+namespace Misa\Accounting\Infrastructure\SearchEngine\Solr;
 
 use Misa\Common\Adapter\Persistence\Solr\AbstractSolrRepository;
 use Faker\Factory as FakerFactory;
@@ -8,7 +8,7 @@ use Faker\Factory as FakerFactory;
 /**
  * UserSolrRepository Class
  *
- * @package Misa\Users\Infrastructure\SearchEngine\Solr
+ * @package Misa\Accounting\Infrastructure\SearchEngine\Solr
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */

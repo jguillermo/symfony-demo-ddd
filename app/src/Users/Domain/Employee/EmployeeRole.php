@@ -1,13 +1,13 @@
 <?php
 
-namespace Misa\Users\Domain\Employee;
+namespace Misa\Accounting\Domain\Employee;
 
 use Misa\Common\Util\AbstractEnum;
 
 /**
  * EmployeeRole Class
  *
- * @package Misa\Users\Domain\Enum
+ * @package Misa\Accounting\Domain\Enum
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */

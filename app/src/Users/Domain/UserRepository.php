@@ -1,6 +1,6 @@
 <?php
 
-namespace Misa\Users\Domain;
+namespace Misa\Accounting\Domain;
 
 use Misa\Common\Adapter\Persistence\Doctrine\MisaRepository;
 

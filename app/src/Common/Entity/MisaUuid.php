@@ -35,7 +35,7 @@ class MisaUuid
         if (! is_string($id)) {
             throw new AppException("el id debe ser un string");
         }
-        if ($id == '') {
+        if (empty($id) == '') {
             $this->id = Uuid::uuid4();
         } else {
             if (! Uuid::isValid($id)) {

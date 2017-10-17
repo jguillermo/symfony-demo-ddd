@@ -1,6 +1,6 @@
 <?php
 
-namespace Misa\Users\Domain;
+namespace Misa\Accounting\Domain;
 
 use Misa\Common\Entity\AbstractEntity;
 use Misa\Common\Entity\MisaUuid;

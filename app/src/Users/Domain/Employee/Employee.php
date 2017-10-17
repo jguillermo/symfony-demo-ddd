@@ -1,9 +1,9 @@
 <?php
 
-namespace Misa\Users\Domain\Employee;
+namespace Misa\Accounting\Domain\Employee;
 
 use Misa\Common\Entity\AbstractEntity;
-use Misa\Users\Domain\User;
+use Misa\Accounting\Domain\User;
 
 /**
  * Employee

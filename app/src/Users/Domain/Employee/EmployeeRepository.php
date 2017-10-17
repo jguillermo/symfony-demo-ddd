@@ -1,6 +1,6 @@
 <?php
 
-namespace Misa\Users\Domain\Employee;
+namespace Misa\Accounting\Domain\Employee;
 
 use Misa\Common\Adapter\Persistence\Doctrine\MisaRepository;
 

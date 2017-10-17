@@ -1,11 +1,11 @@
 <?php
 
-namespace Misa\Users\Domain;
+namespace Misa\Accounting\Domain;
 
 /**
  * UserSearch Interface
  *
- * @package Misa\Users\Domain
+ * @package Misa\Accounting\Domain
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */
