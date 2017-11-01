@@ -12,8 +12,13 @@ namespace Misa\Accounting\Domain\Provider\BankDetail;
 interface BankRepository
 {
     /**
-     * @param $BankId
+     * @param $bankId
      * @return Bank
      */
-    public function findById($BankId);
+    public function findById($bankId);
+
+    /**
+     * @return Bank[]
+     */
+    public function findAll();
 }

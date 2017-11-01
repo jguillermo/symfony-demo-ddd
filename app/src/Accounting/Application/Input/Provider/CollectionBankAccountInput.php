@@ -23,10 +23,10 @@ class CollectionBankAccountInput extends AbstractCollectionInput
                 $this->items[] = new BankAccountInput(
                     $item['type'],
                     $item['money'],
-                    $item['holderName'],
-                    $item['bankId'],
+                    $item['holder_name'],
+                    $item['bank_id'],
                     $item['number'],
-                    $item['numberInterbank']
+                    $item['number_interbank']
                 );
             }
         }
@@ -34,6 +34,6 @@ class CollectionBankAccountInput extends AbstractCollectionInput
 
     protected function paramsRequire()
     {
-        return ['type','money','holderName','bankId','number','numberInterbank'];
+        return ['type','money','holder_name','bank_id','number','number_interbank'];
     }
 }

@@ -19,4 +19,16 @@ class PhoneType extends AbstractEnum
     const RPC = 4;
     const ENTEL = 5;
     const BITEL = 6;
+
+    public static function label()
+    {
+        return [
+            'LANDLINE' => 'Teléfono Fijo',
+            'CELL_PHONE' => 'Celular',
+            'RPM' => 'Rpm',
+            'RPC' => 'Rpc',
+            'ENTEL' => 'Entel',
+            'BITEL' => 'Bitel',
+        ];
+    }
 }

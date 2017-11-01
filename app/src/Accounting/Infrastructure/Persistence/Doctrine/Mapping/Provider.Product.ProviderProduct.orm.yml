@@ -8,7 +8,7 @@ Misa\Accounting\Domain\Provider\Product\ProviderProduct:
             generator:
                 strategy: NONE
     fields:
-        range:
+        level:
             type: smallint
     manyToOne:
         provider:

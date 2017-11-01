@@ -64,6 +64,7 @@ trait FactoryProviderInput
                 $number = AccountNumber::create($rowBankAccount->number(), $rowBankAccount->numberInterbank());
 
                 $bankAccount = BankAccount::create(
+                    $provider,
                     $rowBankAccount->type(),
                     $rowBankAccount->money(),
                     $rowBankAccount->holderName(),
@@ -79,7 +80,7 @@ trait FactoryProviderInput
     {
         if ($emails->count() > 0) {
             foreach ($emails->getCollection() as $rowEmail) {
-                $email = Email::create($rowEmail->email());
+                $email = Email::create($provider, $rowEmail->email());
                 $provider->addEmail($email);
             }
         }
@@ -89,7 +90,7 @@ trait FactoryProviderInput
     {
         if ($phones->count() > 0) {
             foreach ($phones->getCollection() as $rowPhone) {
-                $phone = Phone::create($rowPhone->number(), $rowPhone->type());
+                $phone = Phone::create($provider, $rowPhone->number(), $rowPhone->type());
                 $provider->addPhone($phone);
             }
         }

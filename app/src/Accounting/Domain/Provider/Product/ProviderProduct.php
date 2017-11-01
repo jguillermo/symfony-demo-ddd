@@ -15,7 +15,7 @@ use MisaSdk\Common\Entity\AbstractEntity;
  */
 class ProviderProduct extends AbstractEntity
 {
-    const MIN_RANGE = 0;
+    const MIN_LEVEL = 0;
 
     /** @var string */
     private $id;
@@ -27,7 +27,7 @@ class ProviderProduct extends AbstractEntity
     private $product;
 
     /** @var int */
-    private $range;
+    private $level;
 
 
     public static function create(Provider $provider, Product $product, $id = self::EMPTY_ID)
@@ -36,7 +36,7 @@ class ProviderProduct extends AbstractEntity
         $providerProduct->id = self::uuid($id)->getId();
         $providerProduct->provider = $provider;
         $providerProduct->product = $product;
-        $providerProduct->range = self::MIN_RANGE;
+        $providerProduct->level = self::MIN_LEVEL;
         return $providerProduct;
     }
 }

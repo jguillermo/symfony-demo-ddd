@@ -37,6 +37,7 @@ class BankAccount extends AbstractEntity
     private $provider;
 
     /**
+     * @param Provider $provider
      * @param $type
      * @param $money
      * @param $holderName
@@ -45,7 +46,7 @@ class BankAccount extends AbstractEntity
      * @param string $id
      * @return BankAccount
      */
-    public static function create($type, $money, $holderName, Bank $bank, AccountNumber $number, $id = '')
+    public static function create(Provider $provider, $type, $money, $holderName, Bank $bank, AccountNumber $number, $id = '')
     {
         $bankAccount = new self();
         $bankAccount->validate($type, $money);
@@ -56,17 +57,18 @@ class BankAccount extends AbstractEntity
         $bankAccount->holderName = $holderName;
         $bankAccount->bank = $bank;
         $bankAccount->number = $number;
+        $bankAccount->provider = $provider;
 
         return $bankAccount;
     }
 
     private function validate($type, $money)
     {
-        if (! AccountType::isValidKey($type)) {
+        if (! AccountType::isValidValue($type)) {
             throw new BadRequest("El tipo de cuenta no es corecta");
         }
 
-        if (! AccountMoney::isValidKey($money)) {
+        if (! AccountMoney::isValidValue($money)) {
             throw new BadRequest("El tipo de moneda no es corecta");
         }
     }

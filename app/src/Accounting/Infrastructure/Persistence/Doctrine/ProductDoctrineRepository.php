@@ -15,13 +15,19 @@ use MisaSdk\Common\Adapter\Persistence\Doctrine\DoctrineRepository;
  */
 class ProductDoctrineRepository extends DoctrineRepository implements ProductRepository
 {
-
     /**
-     * @param $productId
-     * @return Product
+     * @inheritdoc
      */
     public function findById($productId)
     {
-        // TODO: Implement findById() method.
+        return $this->repository->find($productId);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function findAll()
+    {
+        return $this->repository->findAll();
     }
 }

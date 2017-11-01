@@ -3,6 +3,7 @@
 namespace Misa\Accounting\Domain\Provider\BankDetail;
 
 use MisaSdk\Common\Entity\AbstractEntity;
+use MisaSdk\Common\Presentation\MisaToArray;
 
 /**
  * Bank Class
@@ -11,7 +12,7 @@ use MisaSdk\Common\Entity\AbstractEntity;
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */
-class Bank extends AbstractEntity
+class Bank extends AbstractEntity implements MisaToArray
 {
     /** @var string */
     private $id;
@@ -25,5 +26,16 @@ class Bank extends AbstractEntity
         $bank->id = self::uuid($id)->getId();
         $bank->name = $name;
         return $bank;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+        ];
     }
 }

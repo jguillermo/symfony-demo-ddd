@@ -3,22 +3,16 @@
 namespace Misa\Accounting\Domain\Product;
 
 /**
- * ProductRepository Interface
+ * ItemRepository Interface
  *
  * @package Misa\Accounting\Domain\Product
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */
-interface ProductRepository
+interface ItemRepository
 {
     /**
-     * @param $productId
-     * @return Product
-     */
-    public function findById($productId);
-
-    /**
-     * @return Product[]
+     * @return Item[]
      */
     public function findAll();
 }

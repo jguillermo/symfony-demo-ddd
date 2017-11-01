@@ -7,6 +7,7 @@ use GuzzleHttp\Exception\RequestException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use Exception;
+
 /**
  * AbstractHttpService Class
  *
@@ -21,8 +22,8 @@ class AbstractHttpGuzzle
 
     public function __construct(
         Client $client,
-        LoggerInterface $logger = null)
-    {
+        LoggerInterface $logger = null
+    ) {
         $this->client = $client;
         $this->logger = $logger;
     }
@@ -52,8 +53,8 @@ class AbstractHttpGuzzle
     protected function parseException(
         Exception $ex,
         $defaultMessage = 'Ocurrio un error inesperado. Intente nuevamente.',
-        $defaultCode = 500)
-    {
+        $defaultCode = 500
+    ) {
         $code = $defaultCode;
         $message = $defaultMessage;
 

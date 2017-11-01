@@ -80,7 +80,7 @@ app_builddb_cmd()
     mkdir ./app/export/data
     chmod 777 ./app/export/data
     docker-compose exec --user $(id -u):$(id -g) php php bin/console doctrine:migrations:migrate --no-interaction
-#    docker-compose exec --user $(id -u):$(id -g) php php bin/console doctrine:fixtures:load --no-interaction
+    docker-compose exec --user $(id -u):$(id -g) php php bin/console doctrine:fixtures:load --no-interaction
     docker-compose exec --user $(id -u):$(id -g) mysql ./dump.sh
 #    docker-compose exec --user $(id -u):$(id -g) php bin/console app:user:export
 #    docker-compose exec solr ./export.sh

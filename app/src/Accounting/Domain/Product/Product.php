@@ -3,6 +3,7 @@
 namespace Misa\Accounting\Domain\Product;
 
 use MisaSdk\Common\Entity\AbstractEntity;
+use MisaSdk\Common\Presentation\MisaToArray;
 
 /**
  * Product Class
@@ -11,7 +12,7 @@ use MisaSdk\Common\Entity\AbstractEntity;
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */
-class Product extends AbstractEntity
+class Product extends AbstractEntity implements MisaToArray
 {
     /** @var string */
     private $id;
@@ -24,6 +25,7 @@ class Product extends AbstractEntity
 
     /**
      * @param $name
+     * @param Item $item
      * @param string $id
      * @return Product
      */
@@ -34,5 +36,16 @@ class Product extends AbstractEntity
         $product->item = $item;
         $product->id = self::uuid($id)->getId();
         return $product;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+        ];
     }
 }

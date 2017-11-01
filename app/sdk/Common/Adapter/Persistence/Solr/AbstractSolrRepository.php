@@ -3,6 +3,7 @@
 namespace MisaSdk\Common\Adapter\Persistence\Solr;
 
 use Solarium\Client;
+
 /**
  * SolrRepository Class
  *

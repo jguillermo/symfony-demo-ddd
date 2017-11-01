@@ -29,15 +29,16 @@ class Phone extends AbstractEntity
     private $provider;
 
     /**
+     * @param Provider $provider
      * @param $number
      * @param int $type
      * @param string $id
      * @return Phone
      * @throws BadRequest
      */
-    public static function create($number, $type = PhoneType::CELL_PHONE, $id = '')
+    public static function create(Provider $provider, $number, $type = PhoneType::CELL_PHONE, $id = '')
     {
-        if (! PhoneType::isValidKey($type)) {
+        if (! PhoneType::isValidValue($type)) {
             throw new BadRequest("El tipo de teléfono no es corecto");
         }
 
@@ -45,6 +46,7 @@ class Phone extends AbstractEntity
         $phone->id = self::uuid($id)->getId();
         $phone->number = $number;
         $phone->type = $type;
+        $phone->provider = $provider;
 
         return $phone;
     }

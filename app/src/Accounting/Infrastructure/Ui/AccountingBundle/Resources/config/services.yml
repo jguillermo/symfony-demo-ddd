@@ -12,9 +12,16 @@ services:
 
     ###    services
     Misa\Accounting\Application\Services\Provider\MngService: ~
+    Misa\Accounting\Application\Services\Provider\ListService: ~
 
 
     ###   repository
+    Misa\Accounting\Domain\Provider\BankDetail\BankRepository: '@accounting.provider.bank'
+    Misa\Accounting\Domain\Product\ProductRepository: '@accounting.product'
+    Misa\Accounting\Domain\Product\ItemRepository: '@accounting.product.item'
+    Misa\Accounting\Domain\Provider\ProviderRepository: '@accounting.provider'
+
+
     accounting.provider.bank:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderBankDoctrineRepository
         arguments: {$entityName: 'Misa\Accounting\Domain\Provider\BankDetail\Bank'}
@@ -22,6 +29,10 @@ services:
     accounting.product:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProductDoctrineRepository
         arguments: {$entityName: 'Misa\Accounting\Domain\Product\Product'}
+
+    accounting.product.item:
+        class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProductItemRepository
+        arguments: {$entityName: 'Misa\Accounting\Domain\Product\Item'}
 
     accounting.provider:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderDoctrineRepository

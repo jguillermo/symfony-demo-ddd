@@ -2,27 +2,18 @@
 
 namespace Misa\Accounting\Infrastructure\Persistence\Doctrine;
 
-use Misa\Accounting\Domain\Provider\BankDetail\Bank;
-use Misa\Accounting\Domain\Provider\BankDetail\BankRepository;
+use Misa\Accounting\Domain\Product\ItemRepository;
 use MisaSdk\Common\Adapter\Persistence\Doctrine\DoctrineRepository;
 
 /**
- * ProviderBankDoctrineRepository Class
+ * ProductItemRepository Class
  *
  * @package Misa\Accounting\Infrastructure\Persistence\Doctrine
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */
-class ProviderBankDoctrineRepository extends DoctrineRepository implements BankRepository
+class ProductItemRepository extends DoctrineRepository implements ItemRepository
 {
-    /**
-     * @inheritdoc
-     */
-    public function findById($bankId)
-    {
-        return $this->repository->find($bankId);
-    }
-
     /**
      * @inheritdoc
      */

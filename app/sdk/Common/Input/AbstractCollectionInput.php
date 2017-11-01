@@ -22,7 +22,7 @@ abstract class AbstractCollectionInput
      */
     public function __construct(array $items)
     {
-        $this->items=[];
+        $this->items = [];
         $this->validate($items);
     }
 
@@ -41,9 +41,9 @@ abstract class AbstractCollectionInput
 
     abstract protected function validate($items);
 
-    protected function isScalar($item,$label = ''){
-
-        if(is_scalar($item)){
+    protected function isScalar($item, $label = '')
+    {
+        if (! is_scalar($item)) {
             throw new BadRequest("El parámetro {$label} no es correcto");
         }
 
@@ -57,8 +57,8 @@ abstract class AbstractCollectionInput
      */
     protected function verifyParams($params)
     {
-        foreach ($this->paramsRequire() as $item){
-            if(!isset($params[$item])){
+        foreach ($this->paramsRequire() as $item) {
+            if (! isset($params[$item])) {
                 throw new BadRequest('Error no existe el parametro :'.$item);
             }
         }
@@ -69,7 +69,8 @@ abstract class AbstractCollectionInput
      * retornar las parametros que deben existir en cada row
      * @return array
      */
-    protected function paramsRequire(){
+    protected function paramsRequire()
+    {
         return [];
     }
 }

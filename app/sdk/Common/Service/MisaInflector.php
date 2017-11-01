@@ -9,6 +9,7 @@ namespace MisaSdk\Common\Service;
 
 use FOS\RestBundle\Inflector\InflectorInterface;
 use Doctrine\Common\Inflector\Inflector;
+use MisaSdk\Common\Enum\Information\Phone\PhoneType;
 
 class MisaInflector implements InflectorInterface
 {

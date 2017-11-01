@@ -57,6 +57,12 @@ class MngService
         $this->addProviderProducts($provider, $data->providerProducts(), $this->productRepository);
 
         $this->providerRepository->persist($provider);
-        return true;
+
+        return $provider->id();
+    }
+
+    public function ssssssss()
+    {
+        return ['ok'=>123];
     }
 }

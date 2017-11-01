@@ -97,4 +97,12 @@ class Provider extends AbstractEntity
         $this->providerProducts[] = $providerProduct;
         return $this;
     }
+
+    /**
+     * @return string
+     */
+    public function id()
+    {
+        return $this->id;
+    }
 }

@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.6.37, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.35, for Linux (x86_64)
 --
 -- Host: localhost    Database: dbproject
 -- ------------------------------------------------------
--- Server version	5.6.37
+-- Server version	5.6.35
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -34,7 +34,7 @@ CREATE TABLE `migration_versions` (
 
 LOCK TABLES `migration_versions` WRITE;
 /*!40000 ALTER TABLE `migration_versions` DISABLE KEYS */;
-INSERT INTO `migration_versions` VALUES ('20171025232347');
+INSERT INTO `migration_versions` VALUES ('20171025232347'),('20171101055418');
 /*!40000 ALTER TABLE `migration_versions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -59,6 +59,7 @@ CREATE TABLE `product_item` (
 
 LOCK TABLES `product_item` WRITE;
 /*!40000 ALTER TABLE `product_item` DISABLE KEYS */;
+INSERT INTO `product_item` VALUES ('30570c52-abcf-487a-97bc-0fb562a79095','Item 3','7515'),('99b53dae-da9b-4fb2-be6d-a71faff4a655','Item 1','6518'),('cd37c9a9-2e16-46bf-a431-77a6b04cdb5b','Item 2','2154');
 /*!40000 ALTER TABLE `product_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,6 +86,7 @@ CREATE TABLE `product_product` (
 
 LOCK TABLES `product_product` WRITE;
 /*!40000 ALTER TABLE `product_product` DISABLE KEYS */;
+INSERT INTO `product_product` VALUES ('59f20421-1492-4a13-abe6-4ddc8b0ce986','cd37c9a9-2e16-46bf-a431-77a6b04cdb5b','Producto 2'),('b669c851-6290-422d-a820-4b39a6f029dd','99b53dae-da9b-4fb2-be6d-a71faff4a655','Producto 4'),('e21e5085-5a60-40f4-8bd5-c1d1134e6302','99b53dae-da9b-4fb2-be6d-a71faff4a655','Producto 1'),('f03b0609-2bfe-451c-a531-a5e77f137bac','cd37c9a9-2e16-46bf-a431-77a6b04cdb5b','Producto 5'),('f4569bac-539f-4329-a7a1-8df281a0f164','30570c52-abcf-487a-97bc-0fb562a79095','Producto 3');
 /*!40000 ALTER TABLE `product_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -108,6 +110,7 @@ CREATE TABLE `provider_bankdetail` (
 
 LOCK TABLES `provider_bankdetail` WRITE;
 /*!40000 ALTER TABLE `provider_bankdetail` DISABLE KEYS */;
+INSERT INTO `provider_bankdetail` VALUES ('22a6272c-8298-48c7-ab4b-111c453deb0c','Banco 1'),('3547ac22-453d-457c-ad7d-f1b0c45e680f','Banco 2');
 /*!40000 ALTER TABLE `provider_bankdetail` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,7 +211,7 @@ CREATE TABLE `provider_product_providerproduct` (
   `id` char(36) COLLATE utf8_unicode_ci NOT NULL COMMENT '(DC2Type:guid)',
   `provider_id` char(36) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '(DC2Type:guid)',
   `product_id` char(36) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT '(DC2Type:guid)',
-  `range` smallint(6) NOT NULL,
+  `level` smallint(6) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_99F09853A53A8AA` (`provider_id`),
   KEY `IDX_99F098534584665A` (`product_id`),
@@ -291,4 +294,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-10-25 23:24:15
+-- Dump completed on 2017-11-01  5:54:39

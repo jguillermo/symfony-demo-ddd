@@ -24,15 +24,17 @@ class Email extends AbstractEntity
     private $provider;
 
     /**
+     * @param Provider $provider
      * @param $email
      * @param string $id
      * @return Email
      */
-    public static function create($email, $id = self::EMPTY_ID)
+    public static function create(Provider $provider, $email, $id = self::EMPTY_ID)
     {
         $emailObj = new self();
         $emailObj->id = self::uuid($id)->getId();
         $emailObj->email = $email;
+        $emailObj->provider = $provider;
         return $emailObj;
     }
 }
