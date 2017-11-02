@@ -21,6 +21,11 @@ services:
     volumes:
       - ./docker/mysql/sql:/docker-entrypoint-initdb.d
 
+  memcached:
+    image: memcached:alpine
+    ports:
+      - 11211:11211
+
   cli:
     image: jguillermo/misa-accounting:cli
     environment:

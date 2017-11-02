@@ -2,7 +2,6 @@
 
 namespace Misa\Accounting\Infrastructure\Persistence\Doctrine;
 
-use Misa\Accounting\Domain\Product\Product;
 use Misa\Accounting\Domain\Product\ProductRepository;
 use MisaSdk\Common\Adapter\Persistence\Doctrine\DoctrineRepository;
 
@@ -28,6 +27,12 @@ class ProductDoctrineRepository extends DoctrineRepository implements ProductRep
      */
     public function findAll()
     {
-        return $this->repository->findAll();
+        return $this->em->createQueryBuilder()
+            ->select('p')
+            ->from('Accounting:Product\Product', 'p')
+            ->getQuery()
+            ->useQueryCache(true)
+            ->useResultCache(true, 7200)
+            ->getResult();
     }
 }

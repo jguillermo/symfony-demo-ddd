@@ -17,6 +17,10 @@ RUN apt-get install -y git \
     && rm -r /root/.gnupg/ \
     && chmod +x /usr/local/bin/gosu
 
+RUN apt-get update && apt-get install -y libmemcached-dev zlib1g-dev \
+    && pecl install memcached-3.0.3 \
+    && docker-php-ext-enable memcached
+
 # Wait
 COPY ./wait-for-it.sh /tmp/wait-for-it.sh
 RUN chmod +x /tmp/wait-for-it.sh

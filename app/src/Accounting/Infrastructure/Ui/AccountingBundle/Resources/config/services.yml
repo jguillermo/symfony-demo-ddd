@@ -24,7 +24,7 @@ services:
 
     accounting.provider.bank:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderBankDoctrineRepository
-        arguments: {$entityName: 'Misa\Accounting\Domain\Provider\BankDetail\Bank'}
+        arguments: { $entityName: 'Misa\Accounting\Domain\Provider\BankDetail\Bank' }
 
     accounting.product:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProductDoctrineRepository

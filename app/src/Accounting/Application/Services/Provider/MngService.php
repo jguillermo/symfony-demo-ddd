@@ -60,9 +60,4 @@ class MngService
 
         return $provider->id();
     }
-
-    public function ssssssss()
-    {
-        return ['ok'=>123];
-    }
 }

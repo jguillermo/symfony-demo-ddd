@@ -27,8 +27,10 @@ class ProvidersController extends Controller
      * @param ProviderMngService $providerMngService
      * @param ProviderListService $providerListService
      */
-    public function __construct(ProviderMngService $providerMngService, ProviderListService $providerListService)
-    {
+    public function __construct(
+        ProviderMngService $providerMngService,
+        ProviderListService $providerListService
+    ) {
         $this->providerMngService = $providerMngService;
         $this->providerListService = $providerListService;
     }

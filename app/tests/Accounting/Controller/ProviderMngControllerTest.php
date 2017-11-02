@@ -16,7 +16,7 @@ use MisaSdk\Common\Test\MisaIntegrationTest;
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */
-class ProviderControllerTest extends MisaIntegrationTest
+class ProviderMngControllerTest extends MisaIntegrationTest
 {
 
     protected function getStaticUrl()
