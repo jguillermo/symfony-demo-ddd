@@ -1,0 +1,46 @@
+<dataConfig>
+    <dataSource
+            type="JdbcDataSource"
+            driver="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://mysql:3306/dbproject?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8"
+            user="root"
+            password="toord"
+    />
+    <document>
+        <entity name="provider" transformer="RegexTransformer" query="
+SELECT
+  pp.id AS provider_id,
+  pp.contac_name AS provider_contac_name,
+  pss.name AS source_name,
+  pss.trade_name AS source_trade_name,
+  pss.document_number AS source_document_number,
+  (SELECT
+  GROUP_CONCAT(DISTINCT spp.name SEPARATOR '#-#')
+FROM
+  `provider_product_providerproduct` AS spppp
+  INNER JOIN `product_product` AS spp ON spppp.product_id = spp.id
+  WHERE spppp.`provider_id` = pp.id
+  GROUP BY spppp.`provider_id`) AS `provider_products`,
+  (SELECT
+  GROUP_CONCAT(DISTINCT sppi.`description` SEPARATOR '#-#')
+FROM
+  `provider_product_providerproduct` AS spppp
+  INNER JOIN `product_product` AS spp ON spppp.product_id = spp.id
+  INNER JOIN `product_item` AS sppi ON spp.item_id = sppi.id
+  WHERE spppp.`provider_id` = pp.id
+  GROUP BY spppp.`provider_id`) AS provider_items
+FROM
+  `provider_provider` pp
+  INNER JOIN `provider_source_source` pss
+    ON pp.`source_id` = pss.`id`;
+" >
+            <field column="provider_id" name="provider_id" />
+            <field column="provider_contac_name" name="provider_contac_name" />
+            <field column="source_name" name="source_name" />
+            <field column="source_trade_name" name="source_trade_name" />
+            <field column="source_document_number" name="source_document_number" />
+            <field column="provider_products" name="provider_products" splitBy="#-#" />
+            <field column="provider_items" name="provider_items" splitBy="#-#" />
+        </entity>
+    </document>
+</dataConfig>

@@ -26,6 +26,14 @@ services:
     ports:
       - 11211:11211
 
+  solr:
+    image: jguillermo/misa-accounting:solr
+    ports:
+      - 8983:8983
+    volumes:
+      - ./solr:/opt/solr/server/solr/mycores
+      - ./app/export:/opt/solr/mydata
+
   cli:
     image: jguillermo/misa-accounting:cli
     environment:
@@ -37,4 +45,6 @@ services:
     depends_on:
        - php
        - mysql
-    command: ["/tmp/wait-for-it.sh", "mysql:3305", "--", "composer integration-test"]
+       - memcached
+       - solr
+    command: ["/tmp/wait-for-it.sh --timeout=20", "mysql:3305", "--", "composer integration-test"]

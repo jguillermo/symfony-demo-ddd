@@ -31,10 +31,5 @@ services:
     volumes:
       - ./solr:/opt/solr/server/solr/mycores
       - ./app/export:/opt/solr/mydata
-#    entrypoint:
-#      - docker-entrypoint.sh
-#      - run-initdb
-#      - solr-precreate
-#      - employee
 
 #    # sudo chmod o+w -R solr

@@ -10,6 +10,7 @@ use Misa\Accounting\Application\Input\Provider\ProviderInput;
 use Misa\Accounting\Application\Input\Provider\SourceInput;
 use Misa\Accounting\Application\Services\Provider\ListService as ProviderListService;
 use Misa\Accounting\Application\Services\Provider\MngService as ProviderMngService;
+use Misa\Accounting\Application\Services\Provider\SearchService as ProviderSearchService;
 use MisaSdk\Common\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -22,17 +23,23 @@ class ProvidersController extends Controller
     /** @var  ProviderListService */
     private $providerListService;
 
+    /** @var ProviderSearchService */
+    private $providerSearchService;
+
     /**
      * ProvidersController constructor.
      * @param ProviderMngService $providerMngService
      * @param ProviderListService $providerListService
+     * @param ProviderSearchService $providerSearchService
      */
     public function __construct(
         ProviderMngService $providerMngService,
-        ProviderListService $providerListService
+        ProviderListService $providerListService,
+        ProviderSearchService $providerSearchService
     ) {
         $this->providerMngService = $providerMngService;
         $this->providerListService = $providerListService;
+        $this->providerSearchService = $providerSearchService;
     }
 
 
@@ -61,5 +68,11 @@ class ProvidersController extends Controller
     public function loadformProvidersAction()
     {
         return new JsonResponse($this->providerListService->formData());
+    }
+
+    public function searchProvidersAction(Request $request)
+    {
+        $q = $request->query->get('q', '');
+        return new JsonResponse($this->providerSearchService->freeSearch($q));
     }
 }

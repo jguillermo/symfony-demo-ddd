@@ -18,3 +18,5 @@ parameters:
     solr.client.host: solr
     solr.client.path: /solr
     solr.client.timeout: 10
+    memcached_host: memcached
+    memcached_port: 11211
