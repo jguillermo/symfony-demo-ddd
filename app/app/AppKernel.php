@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new Nelmio\SolariumBundle\NelmioSolariumBundle(),
             new Misa\Accounting\Infrastructure\Ui\AccountingBundle\AccountingBundle(),
+            new Misa\Location\Infrastructure\Ui\LocationBundle\LocationBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

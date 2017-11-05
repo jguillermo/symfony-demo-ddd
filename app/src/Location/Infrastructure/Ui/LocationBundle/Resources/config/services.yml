@@ -1,0 +1,24 @@
+services:
+
+    _defaults:
+        autowire: true
+        autoconfigure: true
+
+    Misa\Location\Infrastructure\Ui\LocationBundle\Controller\:
+        resource: '../../Controller'
+        public: true
+        tags: ['controller.service_arguments']
+
+
+
+    ###    services
+    Misa\Location\Application\UbigeoService: ~
+
+
+    ###   repository
+    #searchEngine
+    Misa\Location\Domain\Ubigeo\SearchRepository: '@location.solr.ubigeo.search'
+
+    location.solr.ubigeo.search:
+        class: Misa\Location\Infrastructure\SearchEngine\Solr\UbigeoSolrRepository
+        arguments: ['@solarium.client.ubigeo']

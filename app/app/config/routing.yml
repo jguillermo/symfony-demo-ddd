@@ -1,3 +1,8 @@
+location:
+    type:     rest
+    prefix:   "v1/location"
+    resource: "@LocationBundle/Resources/config/routing.yml"
+
 accounting:
     type:     rest
     prefix:   "v1/accounting"

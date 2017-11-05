@@ -17,6 +17,7 @@ class MisaInflector implements InflectorInterface
     {
         $pluralize = [
             'authenticate' => 'authenticate',
+            'ubigeo' => 'ubigeo',
         ];
         if (isset($pluralize[$word])) {
             return $pluralize[$word];

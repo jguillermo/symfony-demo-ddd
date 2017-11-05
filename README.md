@@ -11,7 +11,7 @@ $ ./scripts/tasks.build.sh
 ```
 
 ```bash
-make start
+make install
 ```
 
 ```bash
@@ -24,16 +24,9 @@ $ ./scripts/tasks.migration.sh status
 make composer-update
 ```
 
-```bash
-./docker/scripts/tasks.console.sh doctrine:schema:update --force
-```
 
 ```bash
-./docker/scripts/tasks.console.sh generate:bundle --namespace=Persons/Infrastructure/Ui/PersonsBundle --format=annotation --dir=src --bundle-name=PersonsBundle --shared  --no-interaction
-```
-
-```bash
-./docker/scripts/tasks.console.sh generate:bundle --namespace=Misa/Users/Infrastructure/Ui/UsersBundle --format=annotation --dir=src --bundle-name=UsersBundle --shared  --no-interaction
+./script console generate:bundle --namespace=Misa/DomainName/Infrastructure/Ui/DomainNameBundle --format=annotation --dir=src --bundle-name=DomainNameBundle --shared  --no-interaction
 ```
 
 ## Open

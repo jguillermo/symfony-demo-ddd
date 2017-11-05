@@ -42,3 +42,6 @@ docker/solr/data/*
 
 app/export/*
 !app/export/.gitkeep
+
+solr/*/data/
+

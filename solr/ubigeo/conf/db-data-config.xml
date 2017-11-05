@@ -1,0 +1,49 @@
+<dataConfig>
+    <dataSource
+            type="JdbcDataSource"
+            driver="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://mysql:3306/dbproject?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8"
+            user="root"
+            password="toord"
+    />
+    <document>
+        <entity name="ubigeo" query="
+SELECT
+  u.`id` AS ubigeo_id,
+  u.`country` AS country_id,
+  u.`department` AS department_id,
+  u.`province` AS province_id,
+  u.`district` AS district_id,
+  uco.`name` AS country_name,
+  ude.`name` AS department_name,
+  upr.`name` AS province_name,
+  udi.`name` AS district_name,
+  u.`name`,
+  IF(u.`district` IS NULL,IF(u.`province` IS NULL,IF(u.`department` IS NULL,1,2),3),4) AS ubigeo_level,
+  TRIM(CONCAT(IF(u.`department` IS NULL  ,uco.`name`,'' ),'',
+  IF (ude.`name` IS NULL,'',ude.`name`),' ',
+  IF (upr.`name` IS NULL,'',upr.`name`),' ',
+  IF (udi.`name` IS NULL,'',udi.`name`)
+  )) AS full_name
+FROM
+  ubigeo AS u
+  INNER JOIN ubigeo AS uco ON uco.`country` = u.`country` AND uco.`department` IS NULL AND uco.`province` IS NULL AND uco.`district` IS NULL
+  LEFT JOIN ubigeo AS ude ON ude.`country` = u.`country` AND ude.`department` = u.`department` AND ude.`province` IS NULL AND ude.`district` IS NULL
+  LEFT JOIN ubigeo AS upr ON upr.`country` = u.`country` AND upr.`department` = u.`department` AND upr.`province` = u.`province` AND upr.`district` IS NULL
+  LEFT JOIN ubigeo AS udi ON udi.`country` = u.`country` AND udi.`department` = u.`department` AND udi.`province` = u.`province` AND udi.`district` = u.`district` ;
+" >
+            <field column="ubigeo_id" name="ubigeo_id" />
+            <field column="ubigeo_level" name="ubigeo_level" />
+            <field column="country_id" name="country_id" />
+            <field column="department_id" name="department_id" />
+            <field column="province_id" name="province_id" />
+            <field column="district_id" name="district_id" />
+            <field column="country_name" name="country_name" />
+            <field column="department_name" name="department_name" />
+            <field column="province_name" name="province_name" />
+            <field column="district_name" name="district_name" />
+            <field column="full_name" name="full_name" />
+            <field column="name" name="name" />
+        </entity>
+    </document>
+</dataConfig>
