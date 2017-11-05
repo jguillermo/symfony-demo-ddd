@@ -4,6 +4,7 @@ namespace Misa\Accounting\Domain\Provider\Source;
 
 use Misa\Accounting\Domain\Provider\Provider;
 use MisaSdk\Common\Entity\AbstractEntity;
+use MisaSdk\Common\Entity\MisaToArray;
 
 /**
  * Company Class
@@ -12,7 +13,7 @@ use MisaSdk\Common\Entity\AbstractEntity;
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */
-class Source extends AbstractEntity
+class Source extends AbstractEntity implements MisaToArray
 {
     /** @var string */
     private $id;
@@ -64,5 +65,40 @@ class Source extends AbstractEntity
         $company->ubigeo = $ubigeo;
         $company->dataEntity = $dataEntity;
         return $company;
+    }
+
+    /**
+     * @return SourceDocument
+     */
+    public function dataDocument()
+    {
+        return $this->dataDocument;
+    }
+
+    /**
+     * @return string
+     */
+    public function name()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function tradeName()
+    {
+        return $this->tradeName;
+    }
+
+
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->name,
+            'trade_name' => $this->tradeName,
+            'document_number' => $this->dataDocument->number()
+        ];
     }
 }

@@ -30,4 +30,20 @@ class SourceDocument
         $dataDocument->number = $number;
         return $dataDocument;
     }
+
+    /**
+     * @return string
+     */
+    public function type()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @return string
+     */
+    public function number()
+    {
+        return $this->number;
+    }
 }

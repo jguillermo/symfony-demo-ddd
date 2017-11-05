@@ -8,6 +8,8 @@ use Misa\Accounting\Domain\Provider\Information\Phone;
 use Misa\Accounting\Domain\Provider\Product\ProviderProduct;
 use Misa\Accounting\Domain\Provider\Source\Source;
 use MisaSdk\Common\Entity\AbstractEntity;
+use MisaSdk\Common\Entity\CollectionToArray;
+use MisaSdk\Common\Entity\MisaToArray;
 
 /**
  * Provider Class
@@ -16,12 +18,14 @@ use MisaSdk\Common\Entity\AbstractEntity;
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */
-class Provider extends AbstractEntity
+class Provider extends AbstractEntity implements MisaToArray
 {
+    use CollectionToArray;
+
     /** @var string */
     private $id;
 
-    /** @var  Source */
+    /** @var Source */
     private $source;
 
     /** @var Phone[] */
@@ -104,5 +108,39 @@ class Provider extends AbstractEntity
     public function id()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function contacName()
+    {
+        return $this->contacName;
+    }
+
+    /**
+     * @return Source
+     */
+    public function source()
+    {
+        return $this->source;
+    }
+
+    /**
+     * @return ProviderProduct[]
+     */
+    public function providerProducts()
+    {
+        return $this->providerProducts;
+    }
+
+    public function toArray()
+    {
+        return [
+            'id' => $this->id,
+            'contacName' => $this->contacName,
+            'source' => $this->source->toArray(),
+            'products' => $this->collectionToArray($this->providerProducts)
+        ];
     }
 }

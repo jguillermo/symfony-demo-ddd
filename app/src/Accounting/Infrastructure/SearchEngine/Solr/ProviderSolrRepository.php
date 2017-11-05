@@ -20,7 +20,7 @@ class ProviderSolrRepository extends AbstractSolrRepository implements ProviderS
      */
     public function find($q)
     {
-        $select = $this->client->createSelect([
+        $select = $this->getSelect([
             'handler' => 'select-free-search',
             'fields' => 'source_name, source_trade_name, source_document_number, provider_contac_name, provider_products, provider_items'
             ]);
@@ -34,6 +34,26 @@ class ProviderSolrRepository extends AbstractSolrRepository implements ProviderS
      */
     public function index(Provider $provider)
     {
+        $products = [];
+        $items = [];
+
+        foreach ($provider->providerProducts() as $providerProduct){
+            $product = $providerProduct->product();
+            $products[$product->id()]=$product->name();
+            $items[$product->item()->id()]=$product->item()->description();
+        }
+
+        $data = [
+            'provider_id' => $provider->id(),
+            'provider_contac_name' => $provider->contacName(),
+            'source_name' => $provider->source()->name(),
+            'source_trade_name' => $provider->source()->tradeName(),
+            'source_document_number' => $provider->source()->dataDocument()->number(),
+            'provider_products' => $products,
+            'provider_items' => $items,
+        ];
+
+        $this->update($data);
         return true;
     }
 }

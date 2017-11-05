@@ -2,6 +2,7 @@
 
 namespace Misa\Accounting\Application\Services\Provider;
 
+use Misa\Accounting\Application\Event\Provider\MngEvent as ProviderMngEvent;
 use Misa\Accounting\Domain\Provider\Provider;
 use Misa\Accounting\Application\Input\Provider\ProviderInput;
 use Misa\Accounting\Domain\Product\ProductRepository;
@@ -28,20 +29,26 @@ class MngService
     /** @var ProviderRepository */
     private $providerRepository;
 
+    /** @var ProviderMngEvent */
+    private $providerMngEvent;
+
     /**
      * MngService constructor.
      * @param BankRepository $bankRepository
      * @param ProductRepository $productRepository
      * @param ProviderRepository $providerRepository
+     * @param ProviderMngEvent $providerMngEvent
      */
     public function __construct(
         BankRepository $bankRepository,
         ProductRepository $productRepository,
-        ProviderRepository $providerRepository
+        ProviderRepository $providerRepository,
+        ProviderMngEvent $providerMngEvent
     ) {
         $this->bankRepository = $bankRepository;
         $this->productRepository = $productRepository;
         $this->providerRepository = $providerRepository;
+        $this->providerMngEvent = $providerMngEvent;
     }
 
 
@@ -57,6 +64,8 @@ class MngService
         $this->addProviderProducts($provider, $data->providerProducts(), $this->productRepository);
 
         $this->providerRepository->persist($provider);
+
+        $this->providerMngEvent->create($provider);
 
         return $provider->id();
     }

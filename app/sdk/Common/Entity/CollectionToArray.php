@@ -1,7 +1,8 @@
 <?php
 
-namespace MisaSdk\Common\Presentation;
+namespace MisaSdk\Common\Entity;
 
+use MisaSdk\Common\Exception\AppException;
 use MisaSdk\Common\Exception\PresentationExeption;
 
 /**
@@ -14,17 +15,17 @@ use MisaSdk\Common\Exception\PresentationExeption;
 trait CollectionToArray
 {
     /**
-     * @param array $items
+     * @param $items
      * @return array
-     * @throws PresentationExeption
+     * @throws AppException
      */
-    public function toArray(array $items)
+    protected function collectionToArray($items)
     {
         $data = [];
         /** @var MisaToArray $item */
         foreach ($items as $item) {
             if (! $item instanceof MisaToArray) {
-                throw new PresentationExeption("error al convertir la data");
+                throw new AppException("error al convertir la data");
             }
             $data[] = $item->toArray();
         }

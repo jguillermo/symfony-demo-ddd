@@ -3,7 +3,7 @@
 namespace Misa\Accounting\Domain\Product;
 
 use MisaSdk\Common\Entity\AbstractEntity;
-use MisaSdk\Common\Presentation\MisaToArray;
+use MisaSdk\Common\Entity\MisaToArray;
 
 /**
  * Product Class
@@ -39,13 +39,37 @@ class Product extends AbstractEntity implements MisaToArray
     }
 
     /**
+     * @return string
+     */
+    public function id()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function name()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return Item
+     */
+    public function item()
+    {
+        return $this->item;
+    }
+
+    /**
      * @inheritdoc
      */
     public function toArray()
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'name' => $this->name
         ];
     }
 }
