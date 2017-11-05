@@ -5,7 +5,7 @@ namespace Misa\Accounting\Presentation\Provider;
 use Misa\Accounting\Domain\Product\Item;
 use Misa\Accounting\Domain\Product\Product;
 use Misa\Accounting\Domain\Provider\BankDetail\Bank;
-use MisaSdk\Common\Presentation\CollectionToArray;
+use MisaSdk\Common\Entity\CollectionToArray;
 
 /**
  * ListPresentation Class
@@ -29,9 +29,9 @@ class ListPresentation
     {
         return [
             'phones' => $phones,
-            'items' => $this->toArray($items),
-            'products' => $this->toArray($products),
-            'banks' => $this->toArray($banks),
+            'items' => $this->collectionToArray($items),
+            'products' => $this->collectionToArray($products),
+            'banks' => $this->collectionToArray($banks),
         ];
     }
 }

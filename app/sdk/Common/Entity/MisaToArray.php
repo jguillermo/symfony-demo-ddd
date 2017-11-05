@@ -1,6 +1,6 @@
 <?php
 
-namespace MisaSdk\Common\Presentation;
+namespace MisaSdk\Common\Entity;
 
 /**
  * MisaToArray Interface

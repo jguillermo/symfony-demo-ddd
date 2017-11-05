@@ -36,7 +36,7 @@ class MisaUuid
             throw new AppException("el id debe ser un string");
         }
         if ($id == "") {
-            $this->id = Uuid::uuid4();
+            $this->id = Uuid::uuid4()->toString();
         } else {
             if (! Uuid::isValid($id)) {
                 throw new AppException("el id debe ser del tipo uuid");
@@ -45,6 +45,9 @@ class MisaUuid
         }
     }
 
+    /**
+     * @return string
+     */
     public function getId()
     {
         return $this->id;

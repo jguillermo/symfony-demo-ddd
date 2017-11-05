@@ -9,6 +9,8 @@ services:
         public: true
         tags: ['controller.service_arguments']
 
+    ###  event
+    Misa\Accounting\Application\Event\Provider\MngEvent: ~
 
     ###    services
     Misa\Accounting\Application\Services\Provider\MngService: ~

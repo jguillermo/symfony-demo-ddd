@@ -3,7 +3,7 @@
 namespace Misa\Accounting\Domain\Provider\BankDetail;
 
 use MisaSdk\Common\Entity\AbstractEntity;
-use MisaSdk\Common\Presentation\MisaToArray;
+use MisaSdk\Common\Entity\MisaToArray;
 
 /**
  * Bank Class

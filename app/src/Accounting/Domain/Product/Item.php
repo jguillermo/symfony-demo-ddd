@@ -3,7 +3,7 @@
 namespace Misa\Accounting\Domain\Product;
 
 use MisaSdk\Common\Entity\AbstractEntity;
-use MisaSdk\Common\Presentation\MisaToArray;
+use MisaSdk\Common\Entity\MisaToArray;
 
 /**
  * Item Class
@@ -30,6 +30,22 @@ class Item extends AbstractEntity implements MisaToArray
         $item->code = $code;
         $item->description = $description;
         return $item;
+    }
+
+    /**
+     * @return string
+     */
+    public function id()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function description()
+    {
+        return $this->description;
     }
 
     /**

@@ -44,6 +44,14 @@ class AbstractSolrRepository
         return $this->client->createUpdate($options);
     }
 
+    protected function update(array $params){
+        $update = $this->getUpdate();
+        $document = $update->createDocument($params);
+        $update->addDocument($document);
+        $update->addCommit();
+        $this->getClient()->update($update);
+    }
+
     /**
      * @return Client
      */
