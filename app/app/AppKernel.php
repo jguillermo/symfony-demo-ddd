@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new Nelmio\SolariumBundle\NelmioSolariumBundle(),
             new Misa\Accounting\Infrastructure\Ui\AccountingBundle\AccountingBundle(),
             new Misa\Location\Infrastructure\Ui\LocationBundle\LocationBundle(),
+            new Aws\Symfony\AwsBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

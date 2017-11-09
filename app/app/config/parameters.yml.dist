@@ -20,3 +20,4 @@ parameters:
     solr.client.timeout: 10
     memcached_host: memcached
     memcached_port: 11211
+    aws_region: us-east-1
