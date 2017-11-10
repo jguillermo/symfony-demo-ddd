@@ -26,7 +26,7 @@ make composer-update
 
 
 ```bash
-./script console generate:bundle --namespace=Misa/DomainName/Infrastructure/Ui/DomainNameBundle --format=annotation --dir=src --bundle-name=DomainNameBundle --shared  --no-interaction
+./script.sh console generate:bundle --namespace=Misa/DomainName/Infrastructure/Ui/DomainNameBundle --format=annotation --dir=src --bundle-name=DomainNameBundle --shared  --no-interaction
 ```
 
 ## Open

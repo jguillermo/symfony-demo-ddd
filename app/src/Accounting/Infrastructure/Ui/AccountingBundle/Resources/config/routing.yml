@@ -1,5 +1,0 @@
-accounting_provider:
-   type: rest
-   resource: "@AccountingBundle/Controller/ProvidersController.php"
-   requirements:
-        providerId: '%regexr_id_entity%'

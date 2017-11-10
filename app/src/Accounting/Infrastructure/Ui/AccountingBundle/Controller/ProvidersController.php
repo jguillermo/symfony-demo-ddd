@@ -12,6 +12,8 @@ use Misa\Accounting\Application\Services\Provider\ListService as ProviderListSer
 use Misa\Accounting\Application\Services\Provider\MngService as ProviderMngService;
 use Misa\Accounting\Application\Services\Provider\SearchService as ProviderSearchService;
 use MisaSdk\Common\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -42,8 +44,13 @@ class ProvidersController extends Controller
         $this->providerSearchService = $providerSearchService;
     }
 
-
-    public function postProvidersAction(Request $request)
+    /**
+     * @Route("/providers", name="accounting_providers_create")
+     * @Method({"POST"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function createProvidersAction(Request $request)
     {
         $id = $this->providerMngService->create(new ProviderInput(
             new SourceInput(
@@ -65,11 +72,22 @@ class ProvidersController extends Controller
         return new JsonResponse(['id' => $id]);
     }
 
+    /**
+     * @Route("/providers/loadform", name="accounting_providers_loadform")
+     * @Method({"GET"})
+     * @return JsonResponse
+     */
     public function loadformProvidersAction()
     {
         return new JsonResponse($this->providerListService->formData());
     }
 
+    /**
+     * @Route("/providers/search", name="accounting_providers_search")
+     * @Method({"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function searchProvidersAction(Request $request)
     {
         $q = $request->query->get('q', '');

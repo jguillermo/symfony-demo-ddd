@@ -1,8 +1,11 @@
 <?php
 
 namespace Misa\Location\Infrastructure\Ui\LocationBundle\Controller;
+
 use Misa\Location\Application\UbigeoService;
 use MisaSdk\Common\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 /**
@@ -26,6 +29,12 @@ class UbigeoController extends Controller
         $this->ubigeoService = $ubigeoService;
     }
 
+    /**
+     * @Route("/ubigeo/search", name="location_ubigeo_search")
+     * @Method({"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
     public function searchUbigeoAction(Request $request)
     {
         $q = $request->query->get('q', '');
