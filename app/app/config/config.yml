@@ -4,6 +4,7 @@ imports:
     - { resource: security.yml }
     - { resource: services.yml }
     - { resource: solarium.yml }
+#    - { resource: aws.yml }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -47,30 +48,3 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-
-
-# REST Configuration
-fos_rest:
-    format_listener:
-        rules:
-            - { path: '^/', priorities: ['json'], fallback_format: json, prefer_extension: false }
-    param_fetcher_listener: force
-    routing_loader:
-        default_format: json
-    service:
-        inflector: misa.inflector.service
-#    serializer:
-#        serialize_null: false
-    access_denied_listener:
-        json: true
-    exception:
-        enabled: true
-        codes:
-            Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException : 300
-            Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException : 301
-            MisaSdk\Common\Exception\BadRequest : 400
-            FOS\RestBundle\Exception\InvalidParameterException: 200
-        messages:
-            Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException: true
-            Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException: true
-            MisaSdk\Common\Exception\BadRequest : true

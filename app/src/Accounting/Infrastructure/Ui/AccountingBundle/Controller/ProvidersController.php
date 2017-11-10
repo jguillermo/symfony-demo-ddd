@@ -12,6 +12,7 @@ use Misa\Accounting\Application\Services\Provider\ListService as ProviderListSer
 use Misa\Accounting\Application\Services\Provider\MngService as ProviderMngService;
 use Misa\Accounting\Application\Services\Provider\SearchService as ProviderSearchService;
 use MisaSdk\Common\Controller\Controller;
+use Psr\Log\LoggerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -48,10 +49,12 @@ class ProvidersController extends Controller
      * @Route("/providers", name="accounting_providers_create")
      * @Method({"POST"})
      * @param Request $request
+     * @param LoggerInterface $logger
      * @return JsonResponse
      */
-    public function createProvidersAction(Request $request)
+    public function createProvidersAction(Request $request, LoggerInterface $logger)
     {
+        $logger->info('create Provider');
         $id = $this->providerMngService->create(new ProviderInput(
             new SourceInput(
                 $request->get('source_data_document_type'),

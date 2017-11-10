@@ -1,7 +1,7 @@
 aws:
-    version: latest
     region: '%aws_region%'
-    DynamoDb:
-        region: us-west-2
-    S3:
-        version: '2006-03-01'
+    credentials:
+        key: 'AKIAJTV5TT2ISKX37BMA'
+        secret: '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'
+    cloudwatchlogs:
+      version: latest

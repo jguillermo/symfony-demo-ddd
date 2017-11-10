@@ -2,10 +2,9 @@
 
 namespace MisaSdk\Common\Controller;
 
-use FOS\RestBundle\Controller\FOSRestController;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
-class Controller extends FOSRestController
+class Controller
 {
     /**
      * @return array
