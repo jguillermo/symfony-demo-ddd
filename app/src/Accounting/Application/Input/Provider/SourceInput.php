@@ -3,6 +3,7 @@
 namespace Misa\Accounting\Application\Input\Provider;
 
 use MisaSdk\Common\Input\AbstractInput;
+use MisaSdk\Common\Validation\MisaAssertion;
 
 /**
  * SourceInput Class
@@ -75,5 +76,12 @@ class SourceInput extends AbstractInput
         $this->ubigeo = $ubigeo;
         $this->dataEntityId = $dataEntityId;
         $this->dataEntityName = $dataEntityName;
+        $this->validate();
+    }
+
+    private function validate()
+    {
+        $assert = new MisaAssertion();
+        $assert::minLength($this->name,2,"Nombre: Ingrese como mínimo 2 caracteres");
     }
 }

@@ -3,6 +3,7 @@
 namespace Misa\Accounting\Application\Input\Provider;
 
 use MisaSdk\Common\Input\AbstractInput;
+use MisaSdk\Common\Validation\MisaAssertion;
 
 /**
  * CreateInput Class
@@ -55,11 +56,21 @@ class ProviderInput extends AbstractInput
         CollectionBankAccountInput $bankAccounts,
         CollectionProductInput $providerProducts
     ) {
+
+        $this->validate($contacName);
+
         $this->source = $source;
         $this->contacName = $contacName;
         $this->phones = $phones;
         $this->emails = $emails;
         $this->bankAccounts = $bankAccounts;
         $this->providerProducts = $providerProducts;
+
+    }
+
+    private function validate($contacName)
+    {
+        $assert = new MisaAssertion();
+        $assert::minLength($contacName,8,"Ingrese el Nombre de contacto de minimo 8 caracteres");
     }
 }
