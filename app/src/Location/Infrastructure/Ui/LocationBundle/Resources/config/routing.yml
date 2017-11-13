@@ -1,3 +1,0 @@
-location_ubigeo:
-   type: rest
-   resource: "@LocationBundle/Controller/UbigeoController.php"

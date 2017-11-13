@@ -1,0 +1,7 @@
+aws:
+    region: '%aws_region%'
+    credentials:
+        key: 'AKIAJTV5TT2ISKX37BMA'
+        secret: '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'
+    cloudwatchlogs:
+      version: latest

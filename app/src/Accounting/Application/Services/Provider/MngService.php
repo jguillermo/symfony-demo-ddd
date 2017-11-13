@@ -32,6 +32,7 @@ class MngService
     /** @var ProviderMngEvent */
     private $providerMngEvent;
 
+
     /**
      * MngService constructor.
      * @param BankRepository $bankRepository

@@ -1,9 +1,9 @@
 location:
-    type:     rest
+    type:     annotation
     prefix:   "v1/location"
-    resource: "@LocationBundle/Resources/config/routing.yml"
+    resource: "@LocationBundle/Controller/"
 
 accounting:
-    type:     rest
+    type:     annotation
     prefix:   "v1/accounting"
-    resource: "@AccountingBundle/Resources/config/routing.yml"
+    resource: "@AccountingBundle/Controller/"
