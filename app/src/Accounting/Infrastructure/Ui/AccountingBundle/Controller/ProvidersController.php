@@ -55,8 +55,20 @@ class ProvidersController extends Controller
     public function createProvidersAction(Request $request, LoggerInterface $logger)
     {
         $logger->info('create Provider');
-        $id = $this->providerMngService->create(new ProviderInput(
-            new SourceInput(
+
+        $providerInput = new ProviderInput(
+            $request->get('provider_contac_name'),
+            new CollectionPhoneInput($request->get('phones', [])),
+            new CollectionEmailInput($request->get('emails', [])),
+            new CollectionBankAccountInput($request->get('bank_accounts', [])),
+            new CollectionProductInput($request->get('products_id', []))
+        );
+
+
+        if ($request->get('source_id')) {
+            $providerInput->setSourceId($request->get('source_id'));
+        } else {
+            $providerInput->setSource(new SourceInput(
                 $request->get('source_data_document_type'),
                 $request->get('source_data_document_number'),
                 $request->get('source_name'),
@@ -65,15 +77,14 @@ class ProvidersController extends Controller
                 $request->get('source_ubigeo'),
                 $request->get('source_data_entity_id'),
                 $request->get('source_data_entity_name')
-            ),
-            $request->get('provider_contac_name'),
-            new CollectionPhoneInput($request->get('phones', [])),
-            new CollectionEmailInput($request->get('emails', [])),
-            new CollectionBankAccountInput($request->get('bank_accounts', [])),
-            new CollectionProductInput($request->get('products_id', []))
-        ));
+            ));
+        }
+
+        $id = $this->providerMngService->create($providerInput);
+
         return new JsonResponse(['id' => $id]);
     }
+
 
     /**
      * @Route("/providers/loadform", name="accounting_providers_loadform")

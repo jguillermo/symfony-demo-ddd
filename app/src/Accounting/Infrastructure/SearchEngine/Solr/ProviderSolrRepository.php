@@ -37,10 +37,10 @@ class ProviderSolrRepository extends AbstractSolrRepository implements ProviderS
         $products = [];
         $items = [];
 
-        foreach ($provider->providerProducts() as $providerProduct){
+        foreach ($provider->providerProducts() as $providerProduct) {
             $product = $providerProduct->product();
-            $products[$product->id()]=$product->name();
-            $items[$product->item()->id()]=$product->item()->description();
+            $products[$product->id()] = $product->name();
+            $items[$product->item()->id()] = $product->item()->description();
         }
 
         $data = [

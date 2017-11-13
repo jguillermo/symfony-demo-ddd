@@ -3,11 +3,14 @@
 namespace Misa\Accounting\Application\Services\Provider;
 
 use Misa\Accounting\Application\Event\Provider\MngEvent as ProviderMngEvent;
+use Misa\Accounting\Application\Services\Source\FactorySourceInput;
 use Misa\Accounting\Domain\Provider\Provider;
 use Misa\Accounting\Application\Input\Provider\ProviderInput;
 use Misa\Accounting\Domain\Product\ProductRepository;
 use Misa\Accounting\Domain\Provider\BankDetail\BankRepository;
 use Misa\Accounting\Domain\Provider\ProviderRepository;
+use Misa\Accounting\Domain\Provider\Source\SourceRepository;
+use MisaSdk\Common\Exception\BadRequest;
 
 /**
  * MngService Class
@@ -19,6 +22,7 @@ use Misa\Accounting\Domain\Provider\ProviderRepository;
 class MngService
 {
     use FactoryProviderInput;
+    use FactorySourceInput;
 
     /** @var BankRepository */
     private $bankRepository;
@@ -32,6 +36,9 @@ class MngService
     /** @var ProviderMngEvent */
     private $providerMngEvent;
 
+    /** @var SourceRepository */
+    private $sourceRepository;
+
 
     /**
      * MngService constructor.
@@ -39,23 +46,34 @@ class MngService
      * @param ProductRepository $productRepository
      * @param ProviderRepository $providerRepository
      * @param ProviderMngEvent $providerMngEvent
+     * @param SourceRepository $sourceRepository
      */
     public function __construct(
         BankRepository $bankRepository,
         ProductRepository $productRepository,
         ProviderRepository $providerRepository,
-        ProviderMngEvent $providerMngEvent
+        ProviderMngEvent $providerMngEvent,
+        SourceRepository $sourceRepository
     ) {
         $this->bankRepository = $bankRepository;
         $this->productRepository = $productRepository;
         $this->providerRepository = $providerRepository;
         $this->providerMngEvent = $providerMngEvent;
+        $this->sourceRepository = $sourceRepository;
     }
 
 
     public function create(ProviderInput $data)
     {
-        $source = $this->generateSource($data->source());
+        if ($data->sourceId()) {
+            $source = $this->sourceRepository->findById($data->sourceId());
+            if (! $source) {
+                throw new BadRequest("Error no existe la empresa con el id :".$data->sourceId());
+            }
+        } else {
+            $source = $this->generateSource($data->source());
+        }
+
 
         $provider = Provider::create($source, $data->contacName());
 

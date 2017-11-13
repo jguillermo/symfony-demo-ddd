@@ -26,6 +26,11 @@ class SearchService
         $this->providerSearchRepository = $providerSearchRepository;
     }
 
+    /**
+     * @param $q
+     * @return array
+     * @throws BadRequest
+     */
     public function freeSearch($q)
     {
         if (empty($q)) {

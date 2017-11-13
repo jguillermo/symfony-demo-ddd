@@ -57,6 +57,7 @@ class SourceInput extends AbstractInput
      * @param string $ubigeo
      * @param string $dataEntityId
      * @param string $dataEntityName
+     * @param bool $createValidate
      */
     public function __construct(
         $dataDocumentType,
@@ -66,8 +67,11 @@ class SourceInput extends AbstractInput
         $address,
         $ubigeo,
         $dataEntityId,
-        $dataEntityName
+        $dataEntityName,
+        $createValidate = true
     ) {
+        $this->createValidate = $createValidate;
+
         $this->dataDocumentType = $dataDocumentType;
         $this->dataDocumentNumber = $dataDocumentNumber;
         $this->name = $name;
@@ -82,6 +86,8 @@ class SourceInput extends AbstractInput
     private function validate()
     {
         $assert = new MisaAssertion();
-        $assert::minLength($this->name,2,"Nombre: Ingrese como mínimo 2 caracteres");
+        if ($this->mustValidate($this->name)) {
+            $assert::minLength($this->name, 2, "Nombre: Ingrese como mínimo 2 caracteres");
+        }
     }
 }

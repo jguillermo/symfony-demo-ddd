@@ -46,4 +46,20 @@ class SourceDocument
     {
         return $this->number;
     }
+
+    /**
+     * @param string $type
+     */
+    public function changeType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @param string $number
+     */
+    public function changeNumber($number)
+    {
+        $this->number = $number;
+    }
 }
