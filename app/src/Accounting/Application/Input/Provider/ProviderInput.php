@@ -14,6 +14,7 @@ use MisaSdk\Common\Validation\MisaAssertion;
  *
  * @method string contacName()
  * @method SourceInput source()
+ * @method string sourceId()
  * @method CollectionPhoneInput phones()
  * @method CollectionEmailInput emails()
  * @method CollectionBankAccountInput bankAccounts()
@@ -21,6 +22,9 @@ use MisaSdk\Common\Validation\MisaAssertion;
  */
 class ProviderInput extends AbstractInput
 {
+    /** @var string */
+    protected $sourceId;
+
     /** @var  SourceInput */
     protected $source;
 
@@ -41,7 +45,6 @@ class ProviderInput extends AbstractInput
 
     /**
      * CreateInput constructor.
-     * @param SourceInput $source
      * @param string $contacName
      * @param CollectionPhoneInput $phones
      * @param CollectionEmailInput $emails
@@ -49,7 +52,6 @@ class ProviderInput extends AbstractInput
      * @param CollectionProductInput $providerProducts
      */
     public function __construct(
-        SourceInput $source,
         $contacName,
         CollectionPhoneInput $phones,
         CollectionEmailInput $emails,
@@ -59,18 +61,36 @@ class ProviderInput extends AbstractInput
 
         $this->validate($contacName);
 
-        $this->source = $source;
+        $this->source = null;
+        $this->sourceId = null;
         $this->contacName = $contacName;
         $this->phones = $phones;
         $this->emails = $emails;
         $this->bankAccounts = $bankAccounts;
         $this->providerProducts = $providerProducts;
-
     }
+
+    /**
+     * @param string $sourceId
+     */
+    public function setSourceId($sourceId)
+    {
+        $this->sourceId = $sourceId;
+    }
+
+    /**
+     * @param SourceInput $source
+     */
+    public function setSource(SourceInput $source)
+    {
+        $this->source = $source;
+    }
+
+
 
     private function validate($contacName)
     {
         $assert = new MisaAssertion();
-        $assert::minLength($contacName,8,"Ingrese el Nombre de contacto de minimo 8 caracteres");
+        $assert::minLength($contacName, 8, "Ingrese el Nombre de contacto de minimo 8 caracteres");
     }
 }

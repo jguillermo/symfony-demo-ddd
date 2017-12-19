@@ -28,12 +28,31 @@ class SourceEntity
      */
     public static function create($name, $id = '')
     {
+
+        $dataEntity = new self();
+        $dataEntity->changeName($name);
+        $dataEntity->id = $id;
+
+        return $dataEntity;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function changeId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @param string $name
+     * @throws BadRequest
+     */
+    public function changeName($name)
+    {
         if (! SourceType::isValidValue($name)) {
             throw new BadRequest("El tipo de entidad no es corecto {$name}: [".SourceType::COMPANY.",".SourceType::USER."]");
         }
-        $dataEntity = new self();
-        $dataEntity->id = $id;
-        $dataEntity->name = $name;
-        return $dataEntity;
+        $this->name = $name;
     }
 }

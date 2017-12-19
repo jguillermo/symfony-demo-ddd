@@ -3,6 +3,7 @@
 namespace MisaSdk\Common\Validation;
 
 use Assert\Assertion as BeberleiAssertion;
+
 /**
  * Assertion Class
  *

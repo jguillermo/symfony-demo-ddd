@@ -4,9 +4,11 @@ namespace MisaTests\Accounting\Controller;
 
 use Misa\Accounting\Domain\Provider\BankDetail\AccountMoney;
 use Misa\Accounting\Domain\Provider\BankDetail\AccountType;
+use Misa\Accounting\Infrastructure\Ui\AccountingBundle\DataFixtures\ORM\LoadCompanyData;
 use Misa\Accounting\Infrastructure\Ui\AccountingBundle\DataFixtures\ORM\LoadProductData;
 use Misa\Accounting\Infrastructure\Ui\AccountingBundle\DataFixtures\ORM\LoadProviderBankData;
 use MisaSdk\Common\Enum\Information\Phone\PhoneType;
+use MisaSdk\Common\Test\CodeHttpException;
 use MisaSdk\Common\Test\MisaIntegrationTest;
 
 /**
@@ -23,6 +25,7 @@ class ProviderMngControllerTest extends MisaIntegrationTest
     {
         return 'accounting/providers';
     }
+
 
     public function testCrearUnaSoloConDatosDeEmpresa()
     {
@@ -42,6 +45,30 @@ class ProviderMngControllerTest extends MisaIntegrationTest
 
         $id = $dataResponse->body('id');
     }
+
+
+    public function testCrearConUnaEmpresaExistente()
+    {
+        $dataResponse = $this->request('POST', $this->getUrl(), [
+            'source_id'=>LoadCompanyData::COMPANY_1_ID,
+            'provider_contac_name' => 'Jose Guillermo1'
+        ]);
+
+        $this->assertEquals(200,$dataResponse->statusCode());
+
+        $id = $dataResponse->body('id');
+    }
+
+    public function testCrearConUnaEmpresaNoExistente()
+    {
+        $this->expectException(CodeHttpException::class);
+        $this->expectExceptionCode(500);
+        $dataResponse = $this->request('POST', $this->getUrl(), [
+            'source_id'=>'448d627c-eedb-4201-b68e-ddc74f878830',
+            'provider_contac_name' => 'Jose Guillermo1'
+        ]);
+    }
+
 
 
     public function testCrearAgregantoTelefonos()

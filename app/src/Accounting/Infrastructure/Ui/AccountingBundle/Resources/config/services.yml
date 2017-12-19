@@ -13,21 +13,26 @@ services:
     Misa\Accounting\Application\Event\Provider\MngEvent: ~
 
     ###    services
+    #provider
     Misa\Accounting\Application\Services\Provider\MngService: ~
     Misa\Accounting\Application\Services\Provider\ListService: ~
     Misa\Accounting\Application\Services\Provider\SearchService: ~
 
+    #provider
+    Misa\Accounting\Application\Services\Source\MngService: ~
+
 
     ###   repository
-    #persistence
+    #persistence provider
     Misa\Accounting\Domain\Provider\BankDetail\BankRepository: '@accounting.doctrine.provider.bank'
     Misa\Accounting\Domain\Product\ProductRepository: '@accounting.doctrine.product'
     Misa\Accounting\Domain\Product\ItemRepository: '@accounting.doctrine.product.item'
     Misa\Accounting\Domain\Provider\ProviderRepository: '@accounting.doctrine.provider'
-
     #searchEngine
     Misa\Accounting\Domain\Provider\ProviderSearchRepository: '@accounting.solr.provider.search'
 
+    #persistence source
+    Misa\Accounting\Domain\Provider\Source\SourceRepository: '@accounting.doctrine.source'
 
     accounting.doctrine.provider.bank:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderBankDoctrineRepository
@@ -44,6 +49,10 @@ services:
     accounting.doctrine.provider:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderDoctrineRepository
         arguments: {$entityName: 'Misa\Accounting\Domain\Provider\Provider'}
+
+    accounting.doctrine.source:
+        class: Misa\Accounting\Infrastructure\Persistence\Doctrine\SourceDoctrineRepository
+        arguments: {$entityName: 'Misa\Accounting\Domain\Provider\Source\Source'}
 
     accounting.solr.provider.search:
         class: Misa\Accounting\Infrastructure\SearchEngine\Solr\ProviderSolrRepository

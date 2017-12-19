@@ -17,6 +17,26 @@ abstract class MisaIntegrationTest extends WebTestCase
     const API_VERSION = 'v1';
 
     /**
+     * @var \Doctrine\ORM\EntityManager
+     */
+    protected $em;
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function setUp()
+    {
+        try {
+            self::bootKernel();
+            $this->em = static::$kernel->getContainer()
+                ->get('doctrine')
+                ->getManager();
+        } catch (\Exception $e) {
+            $this->em = false;
+        }
+    }
+
+    /**
      * trasforma la respuesta json a un array y retorna el status code
      * @param $method
      * @param $uri
@@ -40,7 +60,7 @@ abstract class MisaIntegrationTest extends WebTestCase
 
         //var_dump($statuscode,$data);
         if ($statuscode < 200 || $statuscode >= 300) {
-            throw new CodeHttpException("error de code". json_encode($response->body()), $response);
+            throw new CodeHttpException("error de code : ". json_encode($response->body()), $response);
         }
         return $response;
     }
