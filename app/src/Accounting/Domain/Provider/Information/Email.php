@@ -37,4 +37,28 @@ class Email extends AbstractEntity
         $emailObj->provider = $provider;
         return $emailObj;
     }
+
+    /**
+     * @return string
+     */
+    public function id()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function email()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param string $email
+     */
+    public function changeEmail($email)
+    {
+        $this->email = $email;
+    }
 }

@@ -17,6 +17,8 @@ services:
     Misa\Accounting\Application\Services\Provider\MngService: ~
     Misa\Accounting\Application\Services\Provider\ListService: ~
     Misa\Accounting\Application\Services\Provider\SearchService: ~
+    #provider info
+    Misa\Accounting\Application\Services\Provider\Information\EmailService: ~
 
     #provider
     Misa\Accounting\Application\Services\Source\MngService: ~
@@ -28,6 +30,7 @@ services:
     Misa\Accounting\Domain\Product\ProductRepository: '@accounting.doctrine.product'
     Misa\Accounting\Domain\Product\ItemRepository: '@accounting.doctrine.product.item'
     Misa\Accounting\Domain\Provider\ProviderRepository: '@accounting.doctrine.provider'
+    Misa\Accounting\Domain\Provider\Information\EmailRepository: '@accounting.doctrine.provider.email'
     #searchEngine
     Misa\Accounting\Domain\Provider\ProviderSearchRepository: '@accounting.solr.provider.search'
 
@@ -37,6 +40,10 @@ services:
     accounting.doctrine.provider.bank:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderBankDoctrineRepository
         arguments: { $entityName: 'Misa\Accounting\Domain\Provider\BankDetail\Bank' }
+
+    accounting.doctrine.provider.email:
+        class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderEmailDoctrineRepository
+        arguments: { $entityName: 'Misa\Accounting\Domain\Provider\Information\Email' }
 
     accounting.doctrine.product:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProductDoctrineRepository
