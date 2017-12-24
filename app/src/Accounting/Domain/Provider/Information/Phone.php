@@ -58,4 +58,38 @@ class Phone extends AbstractEntity
     {
         return $this->id;
     }
+
+    /**
+     * @return string
+     */
+    public function number()
+    {
+        return $this->number;
+    }
+
+    /**
+     * @return int
+     */
+    public function type()
+    {
+        return $this->type;
+    }
+
+
+
+    /**
+     * @param string $number
+     */
+    public function changeNumber($number)
+    {
+        $this->number = $number;
+    }
+
+    /**
+     * @param int $type
+     */
+    public function changeType($type)
+    {
+        $this->type = $type;
+    }
 }
