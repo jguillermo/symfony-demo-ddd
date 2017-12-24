@@ -50,4 +50,12 @@ class Phone extends AbstractEntity
 
         return $phone;
     }
+
+    /**
+     * @return string
+     */
+    public function id()
+    {
+        return $this->id;
+    }
 }

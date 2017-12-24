@@ -73,21 +73,33 @@ trait FactoryProviderInput
 
     protected function addEmails(Provider $provider, CollectionEmailInput $emails)
     {
+        $ids = [];
         if ($emails->count() > 0) {
             foreach ($emails->getCollection() as $rowEmail) {
                 $email = Email::create($provider, $rowEmail->email());
+                $ids[] = $email->id();
                 $provider->addEmail($email);
             }
         }
+        return $ids;
     }
 
+    /**
+     * @param Provider $provider
+     * @param CollectionPhoneInput $phones
+     * @return array
+     */
     protected function addPhones(Provider $provider, CollectionPhoneInput $phones)
     {
+        $ids = [];
         if ($phones->count() > 0) {
             foreach ($phones->getCollection() as $rowPhone) {
                 $phone = Phone::create($provider, $rowPhone->number(), $rowPhone->type());
+                $ids[] = $phone->id();
                 $provider->addPhone($phone);
             }
         }
+
+        return $ids;
     }
 }
