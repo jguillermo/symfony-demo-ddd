@@ -31,6 +31,7 @@ services:
     Misa\Accounting\Domain\Product\ItemRepository: '@accounting.doctrine.product.item'
     Misa\Accounting\Domain\Provider\ProviderRepository: '@accounting.doctrine.provider'
     Misa\Accounting\Domain\Provider\Information\EmailRepository: '@accounting.doctrine.provider.email'
+    Misa\Accounting\Domain\Provider\Information\PhoneRepository: '@accounting.doctrine.provider.phone'
     #searchEngine
     Misa\Accounting\Domain\Provider\ProviderSearchRepository: '@accounting.solr.provider.search'
 
@@ -44,6 +45,10 @@ services:
     accounting.doctrine.provider.email:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderEmailDoctrineRepository
         arguments: { $entityName: 'Misa\Accounting\Domain\Provider\Information\Email' }
+
+    accounting.doctrine.provider.phone:
+        class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProviderPhoneDoctrineRepository
+        arguments: { $entityName: 'Misa\Accounting\Domain\Provider\Information\Phone' }
 
     accounting.doctrine.product:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\ProductDoctrineRepository

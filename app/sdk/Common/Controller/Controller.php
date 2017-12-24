@@ -31,4 +31,21 @@ class Controller
         }
         return true;
     }
+
+    protected function validateNotEmptyOnceValue(array $list)
+    {
+        $numNotEmpty = 0;
+
+        foreach ($list as $value) {
+            if (! empty($value)) {
+                $numNotEmpty++;
+            }
+        }
+
+        if ($numNotEmpty === 0) {
+            throw new BadRequest("enviar al menos un campo no vacio");
+        }
+
+        return true;
+    }
 }

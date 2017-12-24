@@ -11,5 +11,20 @@ namespace Misa\Accounting\Domain\Provider\Information;
  */
 interface PhoneRepository
 {
+    /**
+     * @return Phone
+     */
+    public function findById($phoneId);
 
+    /**
+     * @param Phone $phone
+     * @return bool
+     */
+    public function persist(Phone $phone);
+
+    /**
+     * @param Phone $phone
+     * @return bool
+     */
+    public function delete(Phone $phone);
 }
