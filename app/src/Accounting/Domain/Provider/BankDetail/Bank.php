@@ -29,6 +29,14 @@ class Bank extends AbstractEntity implements MisaToArray
     }
 
     /**
+     * @return string
+     */
+    public function id()
+    {
+        return $this->id;
+    }
+
+    /**
      * @inheritdoc
      */
     public function toArray()

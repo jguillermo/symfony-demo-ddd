@@ -62,7 +62,7 @@ class ProviderMngControllerTest extends MisaIntegrationTest
     public function testCrearConUnaEmpresaNoExistente()
     {
         $this->expectException(CodeHttpException::class);
-        $this->expectExceptionCode(500);
+        $this->expectExceptionCode(400);
         $dataResponse = $this->request('POST', $this->getUrl(), [
             'source_id'=>'448d627c-eedb-4201-b68e-ddc74f878830',
             'provider_contac_name' => 'Jose Guillermo1'

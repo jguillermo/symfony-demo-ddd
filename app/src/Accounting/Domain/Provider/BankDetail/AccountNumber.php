@@ -30,5 +30,28 @@ class AccountNumber
         return $accountNumber;
     }
 
+    public function number()
+    {
+        return $this->number;
+    }
+
+    public function interbank()
+    {
+        return $this->interbank;
+    }
+
+    public function changeNumber($number)
+    {
+        $this->number = $number;
+    }
+
+    public function changeInterbank($interbank)
+    {
+        $this->interbank = $interbank;
+    }
+
+
+
+
     /** todo: aqui debe estar la validadcion del numero de cuenta */
 }

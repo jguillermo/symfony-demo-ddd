@@ -29,7 +29,7 @@ services:
         class: MisaSdk\Common\Implement\MisaJwt
         arguments: ['%app_secret%']
 
-    published_message.listener:
-        class: MisaSdk\Common\EventListener\MisaExceptionListener
-        tags:
-            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
+#    published_message.listener:
+#        class: MisaSdk\Common\EventListener\MisaExceptionListener
+#        tags:
+#            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
