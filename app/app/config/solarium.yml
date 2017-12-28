@@ -14,8 +14,17 @@ nelmio_solarium:
             path: '%solr.client.path%'
             timeout: '%solr.client.timeout%'
             core: ubigeo
+        company:
+            scheme: http
+            host: '%solr.client.host%'
+            port: '%solr.client.port%'
+            path: '%solr.client.path%'
+            timeout: '%solr.client.timeout%'
+            core: company
     clients:
         provider:
             endpoints: [provider]
         ubigeo:
             endpoints: [ubigeo]
+        company:
+            endpoints: [company]

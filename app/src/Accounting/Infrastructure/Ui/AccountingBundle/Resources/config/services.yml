@@ -11,6 +11,7 @@ services:
 
     ###  event
     Misa\Accounting\Application\Event\Provider\MngEvent: ~
+    Misa\Accounting\Application\Event\Company\MngEvent: ~
 
     ###    services
     #provider
@@ -22,6 +23,7 @@ services:
 
     #provider
     Misa\Accounting\Application\Services\Source\MngService: ~
+    Misa\Accounting\Application\Services\Source\SearchService: ~
 
 
     ###   repository
@@ -35,6 +37,7 @@ services:
     Misa\Accounting\Domain\Provider\BankDetail\BankAccountRepository: '@accounting.doctrine.provider.bankaccount'
     #searchEngine
     Misa\Accounting\Domain\Provider\ProviderSearchRepository: '@accounting.solr.provider.search'
+    Misa\Accounting\Domain\Provider\Source\SearchRepository: '@accounting.solr.company.search'
 
     #persistence source
     Misa\Accounting\Domain\Provider\Source\SourceRepository: '@accounting.doctrine.source'
@@ -74,3 +77,7 @@ services:
     accounting.solr.provider.search:
         class: Misa\Accounting\Infrastructure\SearchEngine\Solr\ProviderSolrRepository
         arguments: ['@solarium.client.provider']
+
+    accounting.solr.company.search:
+        class: Misa\Accounting\Infrastructure\SearchEngine\Solr\CompanySolrRepository
+        arguments: ['@solarium.client.company']

@@ -36,18 +36,21 @@ class SourceEntity
         return $dataEntity;
     }
 
-    /**
-     * @param string $id
-     */
+    public function id()
+    {
+        return $this->id;
+    }
+
+    public function name()
+    {
+        return $this->name;
+    }
+
     public function changeId($id)
     {
         $this->id = $id;
     }
 
-    /**
-     * @param string $name
-     * @throws BadRequest
-     */
     public function changeName($name)
     {
         if (! SourceType::isValidValue($name)) {

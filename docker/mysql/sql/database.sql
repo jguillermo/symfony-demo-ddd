@@ -252,7 +252,7 @@ CREATE TABLE `provider_provider` (
 
 LOCK TABLES `provider_provider` WRITE;
 /*!40000 ALTER TABLE `provider_provider` DISABLE KEYS */;
-INSERT INTO `provider_provider` VALUES ('c9b9ceed-ac6e-41e7-a250-0eaab7f90429','db2fd56d-da55-4cb7-bfdc-12969adc2f4f','jose guillermo');
+INSERT INTO `provider_provider` VALUES ('c9b9ceed-ac6e-41e7-a250-0eaab7f90429','1b72c44b-0a46-4f26-8b0f-5a6a19f08623','jose guillermo');
 /*!40000 ALTER TABLE `provider_provider` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,7 +283,7 @@ CREATE TABLE `provider_source_source` (
 
 LOCK TABLES `provider_source_source` WRITE;
 /*!40000 ALTER TABLE `provider_source_source` DISABLE KEYS */;
-INSERT INTO `provider_source_source` VALUES ('0965777f-c47d-442f-b609-f68b5dbc0b98','Empresa 9','Empresa nueve','Av 9 de diciembre','123658754','ruc','123456789','15','company'),('835ede27-7e5c-4b31-8384-1c31cef7a19e','Empresa 11','Empresa once','Av 11 de octubre','325627851','ruc','20552196578','985','company'),('db2fd56d-da55-4cb7-bfdc-12969adc2f4f','Empresa data information','Empresa correos telefono cuenta bancaria','av jr la informacion','321548795','ruc','20552196578','985','company');
+INSERT INTO `provider_source_source` VALUES ('0965777f-c47d-442f-b609-f68b5dbc0b98','Empresa 9','Empresa nueve','Av 9 de diciembre','PE010103','ruc','123456789','15','company'),('1b72c44b-0a46-4f26-8b0f-5a6a19f08623','Empresa data information','Empresa correos telefono cuenta bancaria','av jr la informacion','PE030407','ruc','20552196578','985','company'),('835ede27-7e5c-4b31-8384-1c31cef7a19e','Empresa 11','Empresa once','Av 11 de octubre','PE010300','ruc','20552196578','985','company');
 /*!40000 ALTER TABLE `provider_source_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,4 +328,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-20 22:54:47
+-- Dump completed on 2017-12-28 20:10:45

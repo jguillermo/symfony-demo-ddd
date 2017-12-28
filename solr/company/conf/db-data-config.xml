@@ -1,0 +1,37 @@
+<dataConfig>
+    <dataSource
+            type="JdbcDataSource"
+            driver="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://mysql:3306/dbproject?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8"
+            user="root"
+            password="toord"
+    />
+    <document>
+        <entity name="provider" transformer="RegexTransformer" query="
+SELECT
+  ps.id as company_id,
+  ps.document_number as document_type,
+  ps.document_number as document_number,
+  ps.name as name,
+  ps.trade_name as trade_name,
+  ps.address as address,
+  ps.entity_id as entity_id,
+  ps.entity_name as entity_name,
+  ps.ubigeo as ubigeo_id,
+  (select ubi.name from ubigeo as ubi where ubi.id = ps.ubigeo ) as ubigeo_name
+FROM
+  `provider_source_source` as ps;
+" >
+            <field column="company_id" name="company_id" />
+            <field column="document_type" name="document_type" />
+            <field column="document_number" name="document_number" />
+            <field column="name" name="name" />
+            <field column="trade_name" name="trade_name" />
+            <field column="address" name="address" />
+            <field column="entity_id" name="entity_id" />
+            <field column="entity_name" name="entity_name" />
+            <field column="ubigeo_id" name="ubigeo_id" />
+            <field column="ubigeo_name" name="ubigeo_name" />
+        </entity>
+    </document>
+</dataConfig>

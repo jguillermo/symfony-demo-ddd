@@ -75,8 +75,6 @@ class Source extends AbstractEntity implements MisaToArray
         return $this->id;
     }
 
-
-
     /**
      * @return SourceDocument
      */
@@ -93,13 +91,17 @@ class Source extends AbstractEntity implements MisaToArray
         return $this->dataEntity;
     }
 
-
     /**
      * @return string
      */
     public function name()
     {
         return $this->name;
+    }
+
+    public function address()
+    {
+        return $this->address;
     }
 
     /**
@@ -109,7 +111,6 @@ class Source extends AbstractEntity implements MisaToArray
     {
         return $this->tradeName;
     }
-
 
     /**
      * @param string $name
@@ -133,6 +134,11 @@ class Source extends AbstractEntity implements MisaToArray
     public function changeAddress($address)
     {
         $this->address = $address;
+    }
+
+    public function ubigeo()
+    {
+        return $this->ubigeo;
     }
 
     /**
