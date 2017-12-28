@@ -4,6 +4,8 @@ namespace MisaSdk\Common\EventListener;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpKernel\Event\GetResponseForExceptionEvent;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\HttpExceptionInterface;
 
 /**
  * MisaExceptionListener Class
@@ -19,10 +21,25 @@ class MisaExceptionListener
      */
     public function onKernelException(GetResponseForExceptionEvent $event)
     {
+//        $exception = $event->getException();
+//        $responseData = [
+//            'message' => $exception->getMessage()
+//        ];
+//        $event->setResponse(new JsonResponse($responseData));
+
+        // You get the exception object from the received event
         $exception = $event->getException();
+        $message = sprintf(
+            '%s with code: %s',
+            $exception->getMessage(),
+            $exception->getCode()
+        );
+
         $responseData = [
-            'message' => $exception->getMessage()
+            'message' => $message
         ];
+
+        // Send the modified response object to the event
         $event->setResponse(new JsonResponse($responseData));
     }
 }

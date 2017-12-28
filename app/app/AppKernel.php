@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new Nelmio\SolariumBundle\NelmioSolariumBundle(),
             new Misa\Accounting\Infrastructure\Ui\AccountingBundle\AccountingBundle(),
             new Misa\Location\Infrastructure\Ui\LocationBundle\LocationBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
 //            new Aws\Symfony\AwsBundle(),
         ];
 

@@ -2,14 +2,10 @@
 
 namespace Misa\Accounting\Application\Services\Provider;
 
-use Misa\Accounting\Application\Input\Provider\CollectionBankAccountInput;
 use Misa\Accounting\Application\Input\Provider\CollectionEmailInput;
 use Misa\Accounting\Application\Input\Provider\CollectionPhoneInput;
 use Misa\Accounting\Application\Input\Provider\CollectionProductInput;
 use Misa\Accounting\Domain\Product\ProductRepository;
-use Misa\Accounting\Domain\Provider\BankDetail\AccountNumber;
-use Misa\Accounting\Domain\Provider\BankDetail\BankAccount;
-use Misa\Accounting\Domain\Provider\BankDetail\BankRepository;
 use Misa\Accounting\Domain\Provider\Information\Email;
 use Misa\Accounting\Domain\Provider\Information\Phone;
 use Misa\Accounting\Domain\Provider\Product\ProviderProduct;
@@ -39,34 +35,6 @@ trait FactoryProviderInput
                 }
                 $providerProduct = ProviderProduct::create($provider, $product);
                 $provider->addProviderProduct($providerProduct);
-            }
-        }
-    }
-
-
-    protected function addBankAccounts(
-        Provider $provider,
-        CollectionBankAccountInput $bankAccounts,
-        BankRepository $bankRepository
-    ) {
-        if ($bankAccounts->count() > 0) {
-            foreach ($bankAccounts->getCollection() as $rowBankAccount) {
-                $bank = $bankRepository->findById($rowBankAccount->bankId());
-                if (! $bank) {
-                    throw new BadRequest("El banco no existe");
-                }
-
-                $number = AccountNumber::create($rowBankAccount->number(), $rowBankAccount->numberInterbank());
-
-                $bankAccount = BankAccount::create(
-                    $provider,
-                    $rowBankAccount->type(),
-                    $rowBankAccount->money(),
-                    $rowBankAccount->holderName(),
-                    $bank,
-                    $number
-                );
-                $provider->addBankAccount($bankAccount);
             }
         }
     }

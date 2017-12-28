@@ -3,6 +3,7 @@
 namespace Misa\Accounting\Application\Services\Provider;
 
 use Misa\Accounting\Application\Event\Provider\MngEvent as ProviderMngEvent;
+use Misa\Accounting\Application\Services\Provider\BankDetail\FactoryBankAccountInput;
 use Misa\Accounting\Application\Services\Source\FactorySourceInput;
 use Misa\Accounting\Domain\Provider\Provider;
 use Misa\Accounting\Application\Input\Provider\ProviderInput;
@@ -23,6 +24,7 @@ class MngService
 {
     use FactoryProviderInput;
     use FactorySourceInput;
+    use FactoryBankAccountInput;
 
     /** @var BankRepository */
     private $bankRepository;

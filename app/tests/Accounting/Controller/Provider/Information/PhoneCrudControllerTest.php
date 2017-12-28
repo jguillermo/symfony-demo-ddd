@@ -26,7 +26,7 @@ class PhoneCrudControllerTest extends MisaIntegrationTest
     public function testAddErrorData()
     {
         $this->expectException(CodeHttpException::class);
-        $this->expectExceptionCode(500);
+        $this->expectExceptionCode(400);
         $dataResponse = $this->request('POST', $this->getUrl(), []);
 
     }

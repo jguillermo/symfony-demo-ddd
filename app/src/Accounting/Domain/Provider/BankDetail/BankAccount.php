@@ -49,11 +49,10 @@ class BankAccount extends AbstractEntity
     public static function create(Provider $provider, $type, $money, $holderName, Bank $bank, AccountNumber $number, $id = '')
     {
         $bankAccount = new self();
-        $bankAccount->validate($type, $money);
 
         $bankAccount->id = self::uuid($id)->getId();
-        $bankAccount->type = $type;
-        $bankAccount->money = $money;
+        $bankAccount->changeType($type);
+        $bankAccount->changeMoney($money);
         $bankAccount->holderName = $holderName;
         $bankAccount->bank = $bank;
         $bankAccount->number = $number;
@@ -62,14 +61,65 @@ class BankAccount extends AbstractEntity
         return $bankAccount;
     }
 
-    private function validate($type, $money)
+    public function id()
+    {
+        return $this->id;
+    }
+
+    public function type()
+    {
+        return $this->type;
+    }
+
+    public function money()
+    {
+        return $this->money;
+    }
+
+    public function holderName()
+    {
+        return $this->holderName;
+    }
+
+    public function bank()
+    {
+        return $this->bank;
+    }
+
+    public function number()
+    {
+        return $this->number;
+    }
+
+    public function changeHolderName($holderName)
+    {
+        $this->holderName = $holderName;
+    }
+
+    public function changeBank(Bank $bank)
+    {
+        $this->bank = $bank;
+    }
+
+    public function changeNumber(AccountNumber $number)
+    {
+        $this->number = $number;
+    }
+
+
+    public function changeType($type)
     {
         if (! AccountType::isValidValue($type)) {
             throw new BadRequest("El tipo de cuenta no es corecta");
         }
+        $this->type = $type;
+    }
 
+    public function changeMoney($money)
+    {
         if (! AccountMoney::isValidValue($money)) {
             throw new BadRequest("El tipo de moneda no es corecta");
         }
+        $this->money = $money;
     }
 }
