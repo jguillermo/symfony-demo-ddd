@@ -37,7 +37,7 @@ class LoadProviderData extends AbstractFixture implements OrderedFixtureInterfac
             'Empresa data information',
             'Empresa correos telefono cuenta bancaria',
             'av jr la informacion',
-            '321548795',
+            'PE030407',
             985,
             SourceType::COMPANY
         ));

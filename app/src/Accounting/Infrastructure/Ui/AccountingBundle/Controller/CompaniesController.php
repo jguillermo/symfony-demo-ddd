@@ -4,6 +4,8 @@ namespace Misa\Accounting\Infrastructure\Ui\AccountingBundle\Controller;
 
 use Misa\Accounting\Application\Input\Provider\SourceInput;
 use Misa\Accounting\Application\Services\Source\MngService as SourceMngService;
+use Misa\Accounting\Application\Services\Source\SearchService as CompanySearchService;
+use Misa\Accounting\Domain\Provider\ProviderSearchRepository;
 use Misa\Accounting\Domain\Provider\Source\DocumentType;
 use MisaSdk\Common\Controller\Controller;
 use Psr\Log\LoggerInterface;
@@ -25,13 +27,13 @@ class CompaniesController extends Controller
     /** @var SourceMngService */
     private $sourceMngService;
 
-    /**
-     * CompaniesController constructor.
-     * @param SourceMngService $sourceMngService
-     */
-    public function __construct(SourceMngService $sourceMngService)
+    /** @var CompanySearchService */
+    private $companySearchService;
+
+    public function __construct(SourceMngService $sourceMngService, CompanySearchService $companySearchService)
     {
         $this->sourceMngService = $sourceMngService;
+        $this->companySearchService = $companySearchService;
     }
 
 
@@ -85,5 +87,17 @@ class CompaniesController extends Controller
         ));
 
         return new JsonResponse(['ok']);
+    }
+
+    /**
+     * @Route("/companies", name="accounting_companies_search")
+     * @Method({"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function searchProvidersAction(Request $request)
+    {
+        $q = $request->query->get('q', '');
+        return new JsonResponse($this->companySearchService->freeSearch($q));
     }
 }

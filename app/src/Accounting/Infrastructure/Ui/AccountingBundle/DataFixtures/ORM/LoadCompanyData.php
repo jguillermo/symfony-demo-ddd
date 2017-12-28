@@ -37,7 +37,7 @@ class LoadCompanyData extends AbstractFixture implements OrderedFixtureInterface
             'Empresa 9',
             'Empresa nueve',
             'Av 9 de diciembre',
-            '12365875421',
+            'PE010103',
             15,
             SourceType::COMPANY
         ), self::COMPANY_1_ID);
@@ -49,7 +49,7 @@ class LoadCompanyData extends AbstractFixture implements OrderedFixtureInterface
             'Empresa 11',
             'Empresa once',
             'Av 11 de octubre',
-            '32562785198',
+            'PE010300',
             985,
             SourceType::COMPANY
         ), self::COMPANY_2_ID);

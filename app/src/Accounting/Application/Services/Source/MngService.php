@@ -2,9 +2,11 @@
 
 namespace Misa\Accounting\Application\Services\Source;
 
+use Misa\Accounting\Application\Event\Company\MngEvent as CompanyMngEvent;
 use Misa\Accounting\Application\Input\Provider\SourceInput;
 use Misa\Accounting\Domain\Provider\Source\SourceRepository;
 use MisaSdk\Common\Exception\BadRequest;
+use phpDocumentor\Reflection\Types\String_;
 
 /**
  * MngService Class
@@ -20,13 +22,13 @@ class MngService
     /** @var SourceRepository */
     private $sourceRepository;
 
-    /**
-     * MngService constructor.
-     * @param SourceRepository $sourceRepository
-     */
-    public function __construct(SourceRepository $sourceRepository)
+    /** @var CompanyMngEvent */
+    private $companyMngEvent;
+
+    public function __construct(SourceRepository $sourceRepository, CompanyMngEvent $companyMngEvent)
     {
         $this->sourceRepository = $sourceRepository;
+        $this->companyMngEvent = $companyMngEvent;
     }
 
     /**
@@ -37,6 +39,8 @@ class MngService
     {
         $source = $this->generateSource($sourceInput);
         $this->sourceRepository->create($source);
+
+        $this->companyMngEvent->persist($source);
         return $source->id();
     }
 
@@ -57,6 +61,7 @@ class MngService
         $this->updateSource($source, $sourceInput);
 
         $this->sourceRepository->update($source);
+        $this->companyMngEvent->persist($source);
         return $source->id();
     }
 }
