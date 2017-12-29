@@ -15,4 +15,12 @@ class AccountMoney extends AbstractEnum
 {
     const DOLLAR = 1;
     const SOLES = 2;
+
+    public static function label()
+    {
+        return [
+            'DOLLAR' => 'Dólares',
+            'SOLES' => 'Soles',
+        ];
+    }
 }

@@ -49,6 +49,16 @@ class ProviderProduct extends AbstractEntity implements MisaToArray
         return $this->product;
     }
 
+    public function level()
+    {
+        return $this->level;
+    }
+
+    public function id()
+    {
+        return $this->id;
+    }
+
 
     public function toArray()
     {

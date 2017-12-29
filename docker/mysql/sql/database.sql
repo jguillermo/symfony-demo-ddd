@@ -144,6 +144,7 @@ CREATE TABLE `provider_bankdetail_bankaccount` (
 
 LOCK TABLES `provider_bankdetail_bankaccount` WRITE;
 /*!40000 ALTER TABLE `provider_bankdetail_bankaccount` DISABLE KEYS */;
+INSERT INTO `provider_bankdetail_bankaccount` VALUES ('260c3b68-0d08-4422-a112-d6caef112702','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-2','0365-888777999-2'),('584001fb-33e7-4401-9316-3bac17a44b17','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-1','0365-888777999-1'),('7f26a4c9-cb4c-481d-8b48-85b596404666','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-4','0365-888777999-4'),('eb6051c6-c38c-4240-bf52-4b94221b3416','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-5','0365-888777999-5'),('f459cfdf-4a43-4af9-9922-4f5e8dc0d24e','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-3','0365-888777999-3');
 /*!40000 ALTER TABLE `provider_bankdetail_bankaccount` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -170,6 +171,7 @@ CREATE TABLE `provider_information_email` (
 
 LOCK TABLES `provider_information_email` WRITE;
 /*!40000 ALTER TABLE `provider_information_email` DISABLE KEYS */;
+INSERT INTO `provider_information_email` VALUES ('0204fea8-c701-4c26-b62b-81508d401118','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc3@xyz.com'),('5c7d3ffb-5bac-4807-836b-018d6627233f','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc1@xyz.com'),('ac596785-282a-469b-9f4d-cdaf8b26ff1e','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc4@xyz.com'),('caec519f-03cf-4d76-ae4e-b07da3e8552a','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc5@xyz.com'),('ee1e1134-12a4-490b-8ecb-af7fd2f00491','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc2@xyz.com');
 /*!40000 ALTER TABLE `provider_information_email` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -197,6 +199,7 @@ CREATE TABLE `provider_information_phone` (
 
 LOCK TABLES `provider_information_phone` WRITE;
 /*!40000 ALTER TABLE `provider_information_phone` DISABLE KEYS */;
+INSERT INTO `provider_information_phone` VALUES ('4f4ca4f2-032d-497c-9456-5744e29bb510','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(055)741852963',2),('67979b4e-aeb5-4ba9-8a5c-b39123e01ee7','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(051)741852963',2),('8df3f27f-5046-4144-ad5b-7c773ff23188','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(052)741852963',2),('a0d5b790-ac69-4232-9fd7-04b0cc25847c','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(054)741852963',2),('d8a149e3-401a-4fda-a482-7979e764e453','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(053)741852963',2);
 /*!40000 ALTER TABLE `provider_information_phone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,6 +229,7 @@ CREATE TABLE `provider_product_providerproduct` (
 
 LOCK TABLES `provider_product_providerproduct` WRITE;
 /*!40000 ALTER TABLE `provider_product_providerproduct` DISABLE KEYS */;
+INSERT INTO `provider_product_providerproduct` VALUES ('2148b9b4-0e53-4680-a795-9743c4a2c8b2','54958337-e3f9-49dd-8285-a3fba5e7c2ea','b669c851-6290-422d-a820-4b39a6f029dd',0),('6d2e2c21-fb7e-45d6-aa91-02a801953ff7','54958337-e3f9-49dd-8285-a3fba5e7c2ea','f03b0609-2bfe-451c-a531-a5e77f137bac',0),('a4eba279-d93e-4feb-9bd5-c8dfecf6702e','54958337-e3f9-49dd-8285-a3fba5e7c2ea','59f20421-1492-4a13-abe6-4ddc8b0ce986',0),('b7caa752-b912-4394-8b56-9c8737fedafa','54958337-e3f9-49dd-8285-a3fba5e7c2ea','e21e5085-5a60-40f4-8bd5-c1d1134e6302',0),('bc18771e-5636-4b6f-b137-692298fc00ea','54958337-e3f9-49dd-8285-a3fba5e7c2ea','f4569bac-539f-4329-a7a1-8df281a0f164',0);
 /*!40000 ALTER TABLE `provider_product_providerproduct` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,7 +256,7 @@ CREATE TABLE `provider_provider` (
 
 LOCK TABLES `provider_provider` WRITE;
 /*!40000 ALTER TABLE `provider_provider` DISABLE KEYS */;
-INSERT INTO `provider_provider` VALUES ('c9b9ceed-ac6e-41e7-a250-0eaab7f90429','1b72c44b-0a46-4f26-8b0f-5a6a19f08623','jose guillermo');
+INSERT INTO `provider_provider` VALUES ('54958337-e3f9-49dd-8285-a3fba5e7c2ea','7cdc5f86-6da7-4715-aafd-a8ffec3177ee','jose Guillermo Completo'),('c9b9ceed-ac6e-41e7-a250-0eaab7f90429','7740f54e-57f6-44be-8a97-7fb0036c8171','jose guillermo');
 /*!40000 ALTER TABLE `provider_provider` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -283,7 +287,7 @@ CREATE TABLE `provider_source_source` (
 
 LOCK TABLES `provider_source_source` WRITE;
 /*!40000 ALTER TABLE `provider_source_source` DISABLE KEYS */;
-INSERT INTO `provider_source_source` VALUES ('0965777f-c47d-442f-b609-f68b5dbc0b98','Empresa 9','Empresa nueve','Av 9 de diciembre','PE010103','ruc','123456789','15','company'),('1b72c44b-0a46-4f26-8b0f-5a6a19f08623','Empresa data information','Empresa correos telefono cuenta bancaria','av jr la informacion','PE030407','ruc','20552196578','985','company'),('835ede27-7e5c-4b31-8384-1c31cef7a19e','Empresa 11','Empresa once','Av 11 de octubre','PE010300','ruc','20552196578','985','company');
+INSERT INTO `provider_source_source` VALUES ('0965777f-c47d-442f-b609-f68b5dbc0b98','Empresa 9','Empresa nueve','Av 9 de diciembre','PE010103','ruc','123456789','15','company'),('7740f54e-57f6-44be-8a97-7fb0036c8171','Empresa data information','Empresa correos telefono cuenta bancaria','av jr la informacion','PE030407','ruc','20552196578','985','company'),('7cdc5f86-6da7-4715-aafd-a8ffec3177ee','Empresa data completa','Empresa completa','Av las encinas','PE030407','ruc','20552196578','985','company'),('835ede27-7e5c-4b31-8384-1c31cef7a19e','Empresa 11','Empresa once','Av 11 de octubre','PE010300','ruc','20552196578','985','company');
 /*!40000 ALTER TABLE `provider_source_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -328,4 +332,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-28 20:10:45
+-- Dump completed on 2017-12-29 20:53:55
