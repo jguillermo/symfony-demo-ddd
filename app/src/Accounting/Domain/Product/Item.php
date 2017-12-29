@@ -32,20 +32,29 @@ class Item extends AbstractEntity implements MisaToArray
         return $item;
     }
 
-    /**
-     * @return string
-     */
     public function id()
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function description()
     {
         return $this->description;
+    }
+
+    public function code()
+    {
+        return $this->code;
+    }
+
+    public function changeDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    public function changeCode($code)
+    {
+        $this->code = $code;
     }
 
     /**

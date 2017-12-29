@@ -25,6 +25,9 @@ services:
     Misa\Accounting\Application\Services\Source\MngService: ~
     Misa\Accounting\Application\Services\Source\SearchService: ~
 
+    #product item
+    Misa\Accounting\Application\Services\Product\Item\MngService: ~
+
 
     ###   repository
     #persistence provider

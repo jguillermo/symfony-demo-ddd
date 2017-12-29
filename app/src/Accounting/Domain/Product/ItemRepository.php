@@ -12,7 +12,25 @@ namespace Misa\Accounting\Domain\Product;
 interface ItemRepository
 {
     /**
+     * @param $itemId
+     * @return Item
+     */
+    public function getById($itemId);
+
+    /**
      * @return Item[]
      */
     public function findAll();
+
+    /**
+     * @param Item $item
+     * @return bool
+     */
+    public function persist(Item $item);
+
+    /**
+     * @param Item $item
+     * @return bool
+     */
+    public function remove(Item $item);
 }

@@ -19,9 +19,9 @@ class AbstractInput
 
     /**
      * verifica si un item se debe validar
-     * true cuando se va a crear la entidad
-     * true cuando se actualiza la entidad y no es null el parametro
-     * false cuando se actualiza y el parametro en null
+     * true cuando se va a crear la entidad  $createValidate = true
+     * true cuando se actualiza la entidad $createValidate = false y no es null el parametro
+     * false cuando se actualiza $createValidate = false y el parametro en null
      * @param $item
      * @return bool
      */
