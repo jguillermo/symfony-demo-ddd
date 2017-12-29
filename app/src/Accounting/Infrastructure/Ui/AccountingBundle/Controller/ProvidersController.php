@@ -18,6 +18,12 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class ProvidersController
+ * @package Misa\Accounting\Infrastructure\Ui\AccountingBundle\Controller
+ *
+ * @Route("/providers")
+ */
 class ProvidersController extends Controller
 {
     /** @var ProviderMngService */
@@ -46,7 +52,7 @@ class ProvidersController extends Controller
     }
 
     /**
-     * @Route("/providers", name="accounting_providers_create")
+     * @Route("", name="accounting_providers_create")
      * @Method({"POST"})
      * @param Request $request
      * @param LoggerInterface $logger
@@ -87,7 +93,7 @@ class ProvidersController extends Controller
 
 
     /**
-     * @Route("/providers/loadform", name="accounting_providers_loadform")
+     * @Route("/loadform", name="accounting_providers_loadform")
      * @Method({"GET"})
      * @return JsonResponse
      */
@@ -97,7 +103,7 @@ class ProvidersController extends Controller
     }
 
     /**
-     * @Route("/providers/search", name="accounting_providers_search")
+     * @Route("/search", name="accounting_providers_search")
      * @Method({"GET"})
      * @param Request $request
      * @return JsonResponse
@@ -106,5 +112,17 @@ class ProvidersController extends Controller
     {
         $q = $request->query->get('q', '');
         return new JsonResponse($this->providerSearchService->freeSearch($q));
+    }
+
+    /**
+     * @Route("/{providerId}", name="accounting_providers_get_by_id")
+     * @Method({"GET"})
+     * @param $providerId
+     * @param LoggerInterface $logger
+     * @return JsonResponse
+     */
+    public function deleteProviderPhoneAction($providerId, LoggerInterface $logger)
+    {
+        return new JsonResponse($this->providerListService->getById($providerId));
     }
 }

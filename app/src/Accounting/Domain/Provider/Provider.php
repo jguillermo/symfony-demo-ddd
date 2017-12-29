@@ -142,6 +142,21 @@ class Provider extends AbstractEntity implements MisaToArray
         return $this->emails;
     }
 
+    /**
+     * @return Phone[]
+     */
+    public function phones()
+    {
+        return $this->phones;
+    }
+
+    /**
+     * @return BankAccount[]
+     */
+    public function bankAccounts()
+    {
+        return $this->bankAccounts;
+    }
 
 
     public function toArray()

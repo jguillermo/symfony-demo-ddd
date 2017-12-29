@@ -15,4 +15,12 @@ class AccountType extends AbstractEnum
 {
     const CURRENT = 1;
     const SAVING = 2;
+
+    public static function label()
+    {
+        return [
+            'CURRENT' => 'Cuenta Corriente',
+            'SAVING' => 'Cuenta de Ahorros',
+        ];
+    }
 }
