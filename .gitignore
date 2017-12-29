@@ -36,6 +36,7 @@ app/web/build/manifest.json
 solr/user/data
 solr/employee/data
 solr/company/data
+solr/product/data
 solr-example
 
 docker/solr/data/*

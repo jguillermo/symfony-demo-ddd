@@ -4,6 +4,7 @@ namespace Misa\Accounting\Infrastructure\Ui\AccountingBundle\Controller;
 
 use Misa\Accounting\Application\Input\Product\ProductInput;
 use Misa\Accounting\Application\Services\Product\MngService as ProductMngService;
+use Misa\Accounting\Application\Services\Product\SearchService as ProductSearchService;
 use Psr\Log\LoggerInterface;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -24,11 +25,14 @@ class ProductController extends Controller
     /** @var ProductMngService */
     private $productMngService;
 
-    public function __construct(ProductMngService $productMngService)
+    /** @var  ProductSearchService */
+    private $productSearchService;
+
+    public function __construct(ProductMngService $productMngService, ProductSearchService $productSearchService)
     {
         $this->productMngService = $productMngService;
+        $this->productSearchService = $productSearchService;
     }
-
 
     /**
      * @Route("", name="accounting_providers_product_create")
@@ -70,7 +74,6 @@ class ProductController extends Controller
         return new JsonResponse(['ok']);
     }
 
-
     /**
      * @Route("/{productId}", name="accounting_providers_product_delete")
      * @Method({"DELETE"})
@@ -85,5 +88,17 @@ class ProductController extends Controller
         $this->productMngService->remove($productId);
 
         return new JsonResponse(['ok']);
+    }
+
+    /**
+     * @Route("", name="accounting_providers_product_search")
+     * @Method({"GET"})
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function searchProvidersAction(Request $request)
+    {
+        $q = $request->query->get('q', '');
+        return new JsonResponse($this->productSearchService->freeSearch($q));
     }
 }
