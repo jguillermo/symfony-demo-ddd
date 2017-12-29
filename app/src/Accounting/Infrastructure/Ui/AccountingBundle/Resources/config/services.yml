@@ -26,6 +26,7 @@ services:
     Misa\Accounting\Application\Services\Source\SearchService: ~
 
     #product item
+    Misa\Accounting\Application\Services\Product\MngService: ~
     Misa\Accounting\Application\Services\Product\Item\MngService: ~
 
 
