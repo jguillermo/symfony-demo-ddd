@@ -27,13 +27,7 @@ class ListPresentation
 {
     use CollectionToArray;
 
-    /**
-     * @param Item[] $items
-     * @param Product[] $products
-     * @param Bank[] $banks
-     * @param $phones
-     * @return array
-     */
+
     public function formData($items, $products, $banks, $phones)
     {
         return [

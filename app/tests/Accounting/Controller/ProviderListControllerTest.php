@@ -61,8 +61,39 @@ class ProviderListControllerTest extends MisaIntegrationTest
             $this->assertRegExp("/^\(05[1-5]\)741852963$/",$phone['number']);
         }
 
+        $this->assertCount(5,$provider['emails']);
+        foreach ($provider['emails'] as $email){
+            $this->assertRegExp("/^abc[1-5]@xyz.com$/",$email['email']);
+        }
 
+        $this->assertCount(5,$provider['products']);
+        foreach ($provider['products'] as $product){
+            $this->assertEquals(0,$product['level']);
+            $this->assertTrue(Uuid::isValid($product['product_id']));
+            $this->assertTrue(Uuid::isValid($product['item_id']));
+            $this->assertTrue(Uuid::isValid($product['id']));
+            $this->assertTrue(isset($product['product_name']));
+            $this->assertTrue(isset($product['item_code']));
+            $this->assertTrue(isset($product['item_description']));
+        }
 
+        $this->assertCount(5,$provider['bankAccounts']);
+        foreach ($provider['bankAccounts'] as $bankAccount){
+            $this->assertTrue(Uuid::isValid($bankAccount['id']));
+
+            $this->assertEquals(1, $bankAccount['type']);
+            $this->assertEquals('Cuenta Corriente', $bankAccount['type_label']);
+
+            $this->assertEquals(2, $bankAccount['money']);
+            $this->assertEquals('Soles', $bankAccount['money_label']);
+
+            $this->assertRegExp("/^888777999\-[1-5]$/",$bankAccount['number']);
+            $this->assertRegExp("/^0365\-888777999\-[1-5]$/",$bankAccount['number_interbank']);
+
+            $this->assertTrue(Uuid::isValid($bankAccount['bank_id']));
+            $this->assertTrue(isset($bankAccount['bank_name']));
+            $this->assertTrue(isset($bankAccount['holder_name']));
+        }
 
     }
 }

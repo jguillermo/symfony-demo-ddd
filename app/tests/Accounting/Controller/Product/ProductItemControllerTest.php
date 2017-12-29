@@ -50,6 +50,22 @@ class ProductItemControllerTest extends MisaIntegrationTest
     /**
      * @depends testAddData
      */
+    public function testGetById($id)
+    {
+        $dataResponse = $this->request('GET', $this->getUrl($id));
+        $this->assertEquals(200,$dataResponse->statusCode());
+        $data = $dataResponse->body();
+
+        /** @var Item $item */
+        $item = $this->em->find(Item::class,$id);
+        $this->assertEquals($item->id(),$data['id']);
+        $this->assertEquals($item->description(),$data['description']);
+        $this->assertEquals($item->code(),$data['code']);
+    }
+
+    /**
+     * @depends testAddData
+     */
     public function testEditEntity($id)
     {
         $dataResponse = $this->request('PUT', $this->getUrl($id), [
