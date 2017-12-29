@@ -1,0 +1,25 @@
+<dataConfig>
+    <dataSource
+            type="JdbcDataSource"
+            driver="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://mysql:3306/dbproject?useUnicode=true&amp;zeroDateTimeBehavior=convertToNull&amp;autoReconnect=true&amp;characterEncoding=UTF-8&amp;characterSetResults=UTF-8"
+            user="root"
+            password="toord"
+    />
+    <document>
+        <entity name="provider" transformer="RegexTransformer" query="
+SELECT
+pp.id as product_id,
+pp.name as name,
+pi.description as item_description,
+pi.code AS item_code
+FROM
+  `product_product` as pp INNER JOIN product_item as pi on pp.item_id= pi.id;
+" >
+            <field column="product_id" name="product_id" />
+            <field column="name" name="name" />
+            <field column="item_description" name="item_description" />
+            <field column="item_code" name="item_code" />
+        </entity>
+    </document>
+</dataConfig>

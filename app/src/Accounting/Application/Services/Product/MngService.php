@@ -2,6 +2,7 @@
 
 namespace Misa\Accounting\Application\Services\Product;
 
+use Misa\Accounting\Application\Event\Product\MngEvent as ProductMngEvent;
 use Misa\Accounting\Application\Input\Product\ProductInput;
 use Misa\Accounting\Domain\Product\ItemRepository;
 use Misa\Accounting\Domain\Product\Product;
@@ -23,10 +24,17 @@ class MngService
     /** @var ItemRepository */
     private $itemRepository;
 
-    public function __construct(ProductRepository $productRepository, ItemRepository $itemRepository)
-    {
+    /** @var ProductMngEvent */
+    private $productMngEvent;
+
+    public function __construct(
+        ProductRepository $productRepository,
+        ItemRepository $itemRepository,
+        ProductMngEvent $productMngEvent
+    ) {
         $this->productRepository = $productRepository;
         $this->itemRepository = $itemRepository;
+        $this->productMngEvent = $productMngEvent;
     }
 
 
@@ -40,6 +48,7 @@ class MngService
         $product = Product::create($productInput->name(), $item);
         $this->productRepository->persist($product);
 
+        $this->productMngEvent->persist($product);
         return $product->id();
     }
 
@@ -62,6 +71,8 @@ class MngService
         }
 
         $this->productRepository->persist($product);
+        $this->productMngEvent->persist($product);
+        return true;
     }
 
     public function remove($productId)
