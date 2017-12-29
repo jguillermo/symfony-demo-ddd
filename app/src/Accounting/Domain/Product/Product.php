@@ -38,29 +38,32 @@ class Product extends AbstractEntity implements MisaToArray
         return $product;
     }
 
-    /**
-     * @return string
-     */
     public function id()
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function name()
     {
         return $this->name;
     }
 
-    /**
-     * @return Item
-     */
     public function item()
     {
         return $this->item;
     }
+
+    public function changeName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function changeItem(Item $item)
+    {
+        $this->item = $item;
+    }
+
+
 
     /**
      * @inheritdoc

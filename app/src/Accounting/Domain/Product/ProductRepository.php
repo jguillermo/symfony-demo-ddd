@@ -21,4 +21,16 @@ interface ProductRepository
      * @return Product[]
      */
     public function findAll();
+
+    /**
+     * @param Product $item
+     * @return bool
+     */
+    public function persist(Product $item);
+
+    /**
+     * @param Product $item
+     * @return bool
+     */
+    public function remove(Product $item);
 }

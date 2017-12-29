@@ -2,6 +2,7 @@
 
 namespace Misa\Accounting\Infrastructure\Persistence\Doctrine;
 
+use Misa\Accounting\Domain\Product\Product;
 use Misa\Accounting\Domain\Product\ProductRepository;
 use MisaSdk\Common\Adapter\Persistence\Doctrine\DoctrineRepository;
 
@@ -34,5 +35,25 @@ class ProductDoctrineRepository extends DoctrineRepository implements ProductRep
             ->useQueryCache(true)
             ->useResultCache(true, 7200)
             ->getResult();
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function persist(Product $item)
+    {
+        $this->em->persist($item);
+        $this->em->flush();
+        return true;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function remove(Product $item)
+    {
+        $this->em->remove($item);
+        $this->em->flush();
+        return true;
     }
 }
