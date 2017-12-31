@@ -44,6 +44,14 @@ doctrine:
                 prefix: Misa\Accounting\Domain
                 alias: Accounting
 
+            location:
+                is_bundle: false
+                mapping: true
+                type: yml
+                dir:  "%kernel.root_dir%/../src/Location/Infrastructure/Persistence/Doctrine/Mapping"
+                prefix: Misa\Location\Domain
+                alias: Location
+
 doctrine_migrations:
     dir_name: "%kernel.root_dir%/DoctrineMigrations"
     namespace: App\Migrations

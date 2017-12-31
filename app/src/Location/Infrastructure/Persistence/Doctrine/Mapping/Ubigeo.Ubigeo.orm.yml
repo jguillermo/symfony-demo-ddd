@@ -1,0 +1,58 @@
+Misa\Location\Domain\Ubigeo\Ubigeo:
+    type: entity
+    table: ubigeo
+    indexes:
+        idx_country_ubigeo:
+            columns:
+                - country
+        idx_department_ubigeo:
+            columns:
+                - department
+        idx_province_ubigeo:
+            columns:
+                - province
+        idx_district_ubigeo:
+            columns:
+                - district
+    id:
+        id:
+            type: string
+            nullable: false
+            length: 8
+            options:
+                fixed: true
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        country:
+            type: string
+            nullable: true
+            length: 2
+            options:
+                fixed: true
+        department:
+            type: string
+            nullable: true
+            length: 2
+            options:
+                fixed: true
+        province:
+            type: string
+            nullable: true
+            length: 2
+            options:
+                fixed: true
+        district:
+            type: string
+            nullable: true
+            length: 2
+            options:
+                fixed: true
+        name:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

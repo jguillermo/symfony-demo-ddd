@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20171231002034 extends AbstractMigration
+class Version20171231005906 extends AbstractMigration
 {
     public function up(Schema $schema)
     {
@@ -32,6 +32,7 @@ class Version20171231002034 extends AbstractMigration
         $this->addSql('ALTER TABLE provider_information_phone ADD CONSTRAINT FK_44033A65A53A8AA FOREIGN KEY (provider_id) REFERENCES provider_provider (id)');
         $this->addSql('ALTER TABLE provider_provider ADD CONSTRAINT FK_DA861D75953C1C61 FOREIGN KEY (source_id) REFERENCES provider_source_source (id)');
         $this->addSql('ALTER TABLE product_product ADD CONSTRAINT FK_2931F1D126F525E FOREIGN KEY (item_id) REFERENCES product_item (id)');
+        $this->addSql('ALTER TABLE ubigeo CHANGE id id CHAR(8) NOT NULL');
     }
 
     public function down(Schema $schema)
@@ -56,5 +57,6 @@ class Version20171231002034 extends AbstractMigration
         $this->addSql('DROP TABLE provider_information_phone');
         $this->addSql('DROP TABLE provider_provider');
         $this->addSql('DROP TABLE product_product');
+        $this->addSql('ALTER TABLE ubigeo CHANGE id id CHAR(8) NOT NULL COLLATE utf8_unicode_ci');
     }
 }
