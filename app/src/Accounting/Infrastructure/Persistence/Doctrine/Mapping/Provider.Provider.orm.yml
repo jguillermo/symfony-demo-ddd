@@ -11,6 +11,10 @@ Misa\Accounting\Domain\Provider\Provider:
         contacName:
             type: string
             length: '50'
+        pageWeb:
+            type: string
+            length: '100'
+            nullable: true
     oneToOne:
         source:
             targetEntity: Misa\Accounting\Domain\Provider\Source\Source

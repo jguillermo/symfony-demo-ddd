@@ -64,6 +64,7 @@ class ProvidersController extends Controller
 
         $providerInput = new ProviderInput(
             $request->get('provider_contac_name'),
+            $request->get('provider_page_web'),
             new CollectionPhoneInput($request->get('phones', [])),
             new CollectionEmailInput($request->get('emails', [])),
             new CollectionBankAccountInput($request->get('bank_accounts', [])),

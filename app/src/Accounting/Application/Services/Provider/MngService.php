@@ -78,6 +78,7 @@ class MngService
 
 
         $provider = Provider::create($source, $data->contacName());
+        $provider->changePageWeb($data->pageWeb());
 
         $this->addPhones($provider, $data->phones());
         $this->addEmails($provider, $data->emails());

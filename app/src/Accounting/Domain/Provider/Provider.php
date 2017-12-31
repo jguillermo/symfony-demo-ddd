@@ -43,6 +43,10 @@ class Provider extends AbstractEntity implements MisaToArray
     /** @var ProviderProduct[] */
     private $providerProducts;
 
+    /** @var string */
+    private $pageWeb;
+
+
     /**
      * @param Source $source
      * @param $contacName
@@ -157,6 +161,18 @@ class Provider extends AbstractEntity implements MisaToArray
     {
         return $this->bankAccounts;
     }
+
+    public function pageWeb()
+    {
+        return $this->pageWeb;
+    }
+
+    public function changePageWeb($pageWeb)
+    {
+        $this->pageWeb = $pageWeb;
+    }
+
+
 
 
     public function toArray()

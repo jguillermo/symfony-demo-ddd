@@ -4,6 +4,7 @@ namespace Misa\Accounting\Application\Input\Provider;
 
 use MisaSdk\Common\Input\AbstractInput;
 use MisaSdk\Common\Validation\MisaAssertion;
+use phpDocumentor\Reflection\Types\String_;
 
 /**
  * CreateInput Class
@@ -13,6 +14,7 @@ use MisaSdk\Common\Validation\MisaAssertion;
  * @copyright (c) 2017, Orbis
  *
  * @method string contacName()
+ * @method string pageWeb()
  * @method SourceInput source()
  * @method string sourceId()
  * @method CollectionPhoneInput phones()
@@ -43,9 +45,13 @@ class ProviderInput extends AbstractInput
     /** @var CollectionProductInput */
     protected $providerProducts;
 
+    /** @var string */
+    protected $pageWeb;
+
     /**
      * CreateInput constructor.
      * @param string $contacName
+     * @param $pageWeb
      * @param CollectionPhoneInput $phones
      * @param CollectionEmailInput $emails
      * @param CollectionBankAccountInput $bankAccounts
@@ -53,6 +59,7 @@ class ProviderInput extends AbstractInput
      */
     public function __construct(
         $contacName,
+        $pageWeb,
         CollectionPhoneInput $phones,
         CollectionEmailInput $emails,
         CollectionBankAccountInput $bankAccounts,
