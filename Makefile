@@ -24,8 +24,8 @@ composer-require: ## Install composer dependency, usage: make composer req=symfo
 composer-update: ## Update composer dependencies
 	./script.sh composer update
 
-symfony-console: ## execute symfony php bin/console
-	./script.sh symfonyconsole
+router: ## execute symfony php bin/console
+	./script.sh console debug:router
 
 ssh: ## Enter ssh container, usage : make ssh container=nginx
 	docker run -ti ${container} sh

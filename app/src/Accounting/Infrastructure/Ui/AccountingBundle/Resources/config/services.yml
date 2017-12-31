@@ -14,6 +14,11 @@ services:
     Misa\Accounting\Application\Event\Company\MngEvent: ~
     Misa\Accounting\Application\Event\Product\MngEvent: ~
 
+    ###presentation
+    Misa\Accounting\Presentation\Product\ListPresentation: ~
+    Misa\Accounting\Presentation\Provider\ListPresentation: ~
+    Misa\Accounting\Presentation\Provider\ItemPresentation: ~
+
     ###    services
     #provider
     Misa\Accounting\Application\Services\Provider\MngService: ~
@@ -28,8 +33,10 @@ services:
 
     #product item
     Misa\Accounting\Application\Services\Product\MngService: ~
+    Misa\Accounting\Application\Services\Product\ListService: ~
     Misa\Accounting\Application\Services\Product\SearchService: ~
     Misa\Accounting\Application\Services\Product\Item\MngService: ~
+    Misa\Accounting\Application\Services\Product\Item\ListService: ~
 
 
     ###   repository

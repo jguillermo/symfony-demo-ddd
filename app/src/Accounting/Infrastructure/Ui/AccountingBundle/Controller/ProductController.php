@@ -3,6 +3,7 @@
 namespace Misa\Accounting\Infrastructure\Ui\AccountingBundle\Controller;
 
 use Misa\Accounting\Application\Input\Product\ProductInput;
+use Misa\Accounting\Application\Services\Product\ListService as ProductListService;
 use Misa\Accounting\Application\Services\Product\MngService as ProductMngService;
 use Misa\Accounting\Application\Services\Product\SearchService as ProductSearchService;
 use Psr\Log\LoggerInterface;
@@ -28,14 +29,25 @@ class ProductController extends Controller
     /** @var  ProductSearchService */
     private $productSearchService;
 
-    public function __construct(ProductMngService $productMngService, ProductSearchService $productSearchService)
+    /** @var ProductListService */
+    private $productListService;
+
+    /**
+     * ProductController constructor.
+     * @param ProductMngService $productMngService
+     * @param ProductSearchService $productSearchService
+     * @param ProductListService $productListService
+     */
+    public function __construct(ProductMngService $productMngService, ProductSearchService $productSearchService, ProductListService $productListService)
     {
         $this->productMngService = $productMngService;
         $this->productSearchService = $productSearchService;
+        $this->productListService = $productListService;
     }
 
+
     /**
-     * @Route("", name="accounting_providers_product_create")
+     * @Route("", name="accounting_product_create")
      * @Method({"POST"})
      * @param Request $request
      * @param LoggerInterface $logger
@@ -54,7 +66,7 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("/{productId}", name="accounting_providers_product_update")
+     * @Route("/{productId}", name="accounting_product_update")
      * @Method({"PUT"})
      * @param $productId
      * @param Request $request
@@ -75,7 +87,7 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("/{productId}", name="accounting_providers_product_delete")
+     * @Route("/{productId}", name="accounting_product_delete")
      * @Method({"DELETE"})
      * @param $productId
      * @param LoggerInterface $logger
@@ -91,7 +103,7 @@ class ProductController extends Controller
     }
 
     /**
-     * @Route("", name="accounting_providers_product_search")
+     * @Route("", name="accounting_product_search")
      * @Method({"GET"})
      * @param Request $request
      * @return JsonResponse
@@ -100,5 +112,21 @@ class ProductController extends Controller
     {
         $q = $request->query->get('q', '');
         return new JsonResponse($this->productSearchService->freeSearch($q));
+    }
+
+    /**
+     * @Route("/{productId}", name="accounting_product_get_id")
+     * @Method({"GET"})
+     * @param $productId
+     * @param LoggerInterface $logger
+     * @return JsonResponse
+     */
+    public function getByIdProductAction($productId, LoggerInterface $logger)
+    {
+        $logger->info('getById Product');
+
+        $this->productListService->getById($productId);
+
+        return new JsonResponse($this->productListService->getById($productId));
     }
 }
