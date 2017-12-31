@@ -2,49 +2,32 @@ version: '2'
 services:
 
   php:
-      image: jguillermo/misa-accounting:php
-      volumes:
-        - ./app/:/var/www/html
-      ports:
-        - 8085:80
-      depends_on:
-         - mysql
+    extends:
+      file: docker-compose.yml
+      service: php
 
   mysql:
-    image: jguillermo/misa-accounting:mysql
-    environment:
-      MYSQL_ROOT_PASSWORD: toord
-      MYSQL_USER : root
-      MYSQL_DATABASE: dbproject
-    ports:
-      - 3369:3306
-    volumes:
-      - ./docker/mysql/sql:/docker-entrypoint-initdb.d
+    extends:
+      file: docker-compose.yml
+      service: mysql
 
   memcached:
-    image: memcached:alpine
-    ports:
-      - 11211:11211
+    extends:
+      file: docker-compose.yml
+      service: memcached
 
   solr:
-    image: jguillermo/misa-accounting:solr
-    ports:
-      - 8983:8983
-    volumes:
-      - ./solr:/opt/solr/server/solr/mycores
-      - ./app/export:/opt/solr/mydata
+    extends:
+      file: docker-compose.yml
+      service: solr
 
   cli:
-    image: jguillermo/misa-accounting:cli
-    environment:
-       - DEV_UID=${DEV_UID}
-       - DEV_GID=${DEV_GID}
-    volumes:
-       - ./app/:/var/www/html
-       - ./docker/ssh/:/app/.ssh/
+    extends:
+      file: docker-compose.tasks.yml
+      service: cli
     depends_on:
        - php
        - mysql
        - memcached
        - solr
-    command: ["/tmp/wait-for-it.sh --timeout=20", "mysql:3305", "--", "composer integration-test"]
+    command: ["/tmp/wait-for-it.sh --timeout=50 mysql:3306", "--", "composer integration-test"]

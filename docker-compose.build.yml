@@ -1,22 +1,8 @@
-version: '2'
-services:
-
-  php:
-    image: jguillermo/misa-accounting:php
-    build:
-      context: ./docker/php-apache/
-
-  cli:
-      image: jguillermo/misa-accounting:cli
-      build:
-        context: ./docker/php-cli/
-
-  mysql:
-      image: jguillermo/misa-accounting:mysql
-      build:
-        context: ./docker/mysql/
-
-  solr:
-      image: jguillermo/misa-accounting:solr
-      build:
-        context: ./docker/solr/
+#version: '2'
+#services:
+#
+#  mysql:
+#      image: jguillermo/misa-accounting:mysql
+#      build:
+#        context: ./docker/mysql/
+#

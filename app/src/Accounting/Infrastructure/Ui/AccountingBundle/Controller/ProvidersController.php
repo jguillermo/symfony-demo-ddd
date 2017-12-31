@@ -57,6 +57,7 @@ class ProvidersController extends Controller
      * @param Request $request
      * @param LoggerInterface $logger
      * @return JsonResponse
+     * @throws \MisaSdk\Common\Exception\BadRequest
      */
     public function createProvidersAction(Request $request, LoggerInterface $logger)
     {
@@ -108,6 +109,7 @@ class ProvidersController extends Controller
      * @Method({"GET"})
      * @param Request $request
      * @return JsonResponse
+     * @throws \MisaSdk\Common\Exception\BadRequest
      */
     public function searchProvidersAction(Request $request)
     {
@@ -121,6 +123,7 @@ class ProvidersController extends Controller
      * @param $providerId
      * @param LoggerInterface $logger
      * @return JsonResponse
+     * @throws \MisaSdk\Common\Exception\BadRequest
      */
     public function deleteProviderPhoneAction($providerId, LoggerInterface $logger)
     {

@@ -30,7 +30,12 @@ app/vendor
 app/composer.lock
 app/web/build/*
 npm-debug.log*
-
+/log
+/log/
+/log/*
+log
+log/
+log/*
 app/web/build/manifest.json
 
 solr/user/data

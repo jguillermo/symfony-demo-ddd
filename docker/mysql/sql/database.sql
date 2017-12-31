@@ -144,7 +144,7 @@ CREATE TABLE `provider_bankdetail_bankaccount` (
 
 LOCK TABLES `provider_bankdetail_bankaccount` WRITE;
 /*!40000 ALTER TABLE `provider_bankdetail_bankaccount` DISABLE KEYS */;
-INSERT INTO `provider_bankdetail_bankaccount` VALUES ('588d36c4-bfe9-4974-a330-464432b36963','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-4','0365-888777999-4'),('6d15cc60-1340-4abf-a50c-50205cc08f90','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-2','0365-888777999-2'),('c1560095-04ee-4393-af10-2d95648840c6','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-3','0365-888777999-3'),('d0a6f084-8bf6-4fe1-9df4-794fdeb94e49','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-5','0365-888777999-5'),('e556cefa-7b51-4af0-9015-aa2bc1f76d13','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-1','0365-888777999-1');
+INSERT INTO `provider_bankdetail_bankaccount` VALUES ('1096bed5-0c24-49e5-8b57-93d2c07295c3','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-3','0365-888777999-3'),('4918a47b-5914-42f6-926b-6d96aba7bc7e','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-5','0365-888777999-5'),('96273f56-04f2-43f7-9d28-1dfe510ed086','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-2','0365-888777999-2'),('e27faeb1-1d9e-4d91-8f9c-7f30f75d7da8','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-1','0365-888777999-1'),('fc255e37-f5e2-4ff0-add1-9f57bfddfe3d','22a6272c-8298-48c7-ab4b-111c453deb0c','54958337-e3f9-49dd-8285-a3fba5e7c2ea',1,2,'Jose referencia de cuenta','888777999-4','0365-888777999-4');
 /*!40000 ALTER TABLE `provider_bankdetail_bankaccount` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,7 +171,7 @@ CREATE TABLE `provider_information_email` (
 
 LOCK TABLES `provider_information_email` WRITE;
 /*!40000 ALTER TABLE `provider_information_email` DISABLE KEYS */;
-INSERT INTO `provider_information_email` VALUES ('14972f25-3fe0-4590-acb6-3c72900cc097','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc2@xyz.com'),('1bf2490a-0423-473c-bd04-351764ee91a0','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc3@xyz.com'),('8a15f768-9c9d-40db-b0f1-3f1b73ad16bd','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc1@xyz.com'),('fbaa2ed4-e059-425c-b4dd-279e1def7c1f','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc5@xyz.com'),('ff520874-8f92-4acc-90df-b6841d736d94','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc4@xyz.com');
+INSERT INTO `provider_information_email` VALUES ('8b131b91-cd37-4f7e-a6c8-d346fc4cb5e7','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc5@xyz.com'),('b9ba6897-548b-4179-8c47-c7634944b346','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc2@xyz.com'),('b9dbd7eb-4e02-4f98-a28c-130c71b17d15','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc4@xyz.com'),('c7313f2e-ff40-4381-a770-65a4b5bd20f0','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc3@xyz.com'),('f1dd3d0b-47bb-4df5-8e64-5786d549b23a','54958337-e3f9-49dd-8285-a3fba5e7c2ea','abc1@xyz.com');
 /*!40000 ALTER TABLE `provider_information_email` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -199,7 +199,7 @@ CREATE TABLE `provider_information_phone` (
 
 LOCK TABLES `provider_information_phone` WRITE;
 /*!40000 ALTER TABLE `provider_information_phone` DISABLE KEYS */;
-INSERT INTO `provider_information_phone` VALUES ('0e4bdfeb-11c1-4d8d-809d-086c94ab4493','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(052)741852963',2),('3f511ddd-73cc-4c7e-abe9-8051edf02276','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(055)741852963',2),('8d7d6af7-bfd3-4399-b610-f09abbbd3704','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(051)741852963',2),('9130efd8-2906-43a8-b816-2097678e0b12','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(053)741852963',2),('c3a8260b-c02c-47c8-b88c-34bde7727ce8','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(054)741852963',2);
+INSERT INTO `provider_information_phone` VALUES ('35901cf5-aef3-4258-b63b-5e2fa6fb2ac5','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(052)741852963',2),('4ca49f76-cd79-4112-86f9-195bddcdb759','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(054)741852963',2),('612bd186-0c81-4819-ade6-9682c7d2e5db','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(055)741852963',2),('c52e571f-2c7c-4564-82d4-6d74bc35d7f6','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(053)741852963',2),('ef7faffe-72d3-46f4-9ba5-c6b58620b99c','54958337-e3f9-49dd-8285-a3fba5e7c2ea','(051)741852963',2);
 /*!40000 ALTER TABLE `provider_information_phone` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -229,7 +229,7 @@ CREATE TABLE `provider_product_providerproduct` (
 
 LOCK TABLES `provider_product_providerproduct` WRITE;
 /*!40000 ALTER TABLE `provider_product_providerproduct` DISABLE KEYS */;
-INSERT INTO `provider_product_providerproduct` VALUES ('0262b84e-1b2b-45ab-985b-40300889f343','54958337-e3f9-49dd-8285-a3fba5e7c2ea','f4569bac-539f-4329-a7a1-8df281a0f164',0),('0df35fc7-f987-4abd-ad82-ecd57e5d00cd','54958337-e3f9-49dd-8285-a3fba5e7c2ea','e21e5085-5a60-40f4-8bd5-c1d1134e6302',0),('3bdcde53-e674-4437-832d-1885ebaba983','54958337-e3f9-49dd-8285-a3fba5e7c2ea','59f20421-1492-4a13-abe6-4ddc8b0ce986',0),('855feb68-7978-4714-9f24-879c845bb9fd','54958337-e3f9-49dd-8285-a3fba5e7c2ea','b669c851-6290-422d-a820-4b39a6f029dd',0),('e2b7b03b-2672-4e55-96f8-f6fd9faec16a','54958337-e3f9-49dd-8285-a3fba5e7c2ea','f03b0609-2bfe-451c-a531-a5e77f137bac',0);
+INSERT INTO `provider_product_providerproduct` VALUES ('023d42e4-cd82-4770-ae96-05ea51b9e908','54958337-e3f9-49dd-8285-a3fba5e7c2ea','e21e5085-5a60-40f4-8bd5-c1d1134e6302',0),('0b9a002d-0587-4a84-adda-d584baa76aa8','54958337-e3f9-49dd-8285-a3fba5e7c2ea','f4569bac-539f-4329-a7a1-8df281a0f164',0),('ad032e1b-2dc4-4050-8e32-d5d4c6cbe3cf','54958337-e3f9-49dd-8285-a3fba5e7c2ea','b669c851-6290-422d-a820-4b39a6f029dd',0),('b6895a60-a5dd-4703-9ebb-88c5ea63f495','54958337-e3f9-49dd-8285-a3fba5e7c2ea','f03b0609-2bfe-451c-a531-a5e77f137bac',0),('eb6e15ab-6057-4a67-83e8-b964ce8ac938','54958337-e3f9-49dd-8285-a3fba5e7c2ea','59f20421-1492-4a13-abe6-4ddc8b0ce986',0);
 /*!40000 ALTER TABLE `provider_product_providerproduct` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,7 +257,7 @@ CREATE TABLE `provider_provider` (
 
 LOCK TABLES `provider_provider` WRITE;
 /*!40000 ALTER TABLE `provider_provider` DISABLE KEYS */;
-INSERT INTO `provider_provider` VALUES ('54958337-e3f9-49dd-8285-a3fba5e7c2ea','4753ae41-c470-43dc-bd0b-e3e48f2b4340','jose Guillermo Completo',NULL),('c9b9ceed-ac6e-41e7-a250-0eaab7f90429','b1a01ad5-2e15-44ab-a4a0-2e8fd794d881','jose guillermo',NULL);
+INSERT INTO `provider_provider` VALUES ('54958337-e3f9-49dd-8285-a3fba5e7c2ea','2f277852-d1e7-4a26-bdcf-2ade941d471f','jose Guillermo Completo',NULL),('c9b9ceed-ac6e-41e7-a250-0eaab7f90429','a7361ce1-d274-4f0a-9d5c-37fd5e300dc6','jose guillermo',NULL);
 /*!40000 ALTER TABLE `provider_provider` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -288,7 +288,7 @@ CREATE TABLE `provider_source_source` (
 
 LOCK TABLES `provider_source_source` WRITE;
 /*!40000 ALTER TABLE `provider_source_source` DISABLE KEYS */;
-INSERT INTO `provider_source_source` VALUES ('0965777f-c47d-442f-b609-f68b5dbc0b98','Empresa 9','Empresa nueve','Av 9 de diciembre','PE010103','ruc','123456789','15','company'),('4753ae41-c470-43dc-bd0b-e3e48f2b4340','Empresa data completa','Empresa completa','Av las encinas','PE030407','ruc','20552196578','985','company'),('835ede27-7e5c-4b31-8384-1c31cef7a19e','Empresa 11','Empresa once','Av 11 de octubre','PE010300','ruc','20552196578','985','company'),('b1a01ad5-2e15-44ab-a4a0-2e8fd794d881','Empresa data information','Empresa correos telefono cuenta bancaria','av jr la informacion','PE030407','ruc','20552196578','985','company');
+INSERT INTO `provider_source_source` VALUES ('0965777f-c47d-442f-b609-f68b5dbc0b98','Empresa 9','Empresa nueve','Av 9 de diciembre','PE010103','ruc','123456789','15','company'),('2f277852-d1e7-4a26-bdcf-2ade941d471f','Empresa data completa','Empresa completa','Av las encinas','PE030407','ruc','20552196578','985','company'),('835ede27-7e5c-4b31-8384-1c31cef7a19e','Empresa 11','Empresa once','Av 11 de octubre','PE010300','ruc','20552196578','985','company'),('a7361ce1-d274-4f0a-9d5c-37fd5e300dc6','Empresa data information','Empresa correos telefono cuenta bancaria','av jr la informacion','PE030407','ruc','20552196578','985','company');
 /*!40000 ALTER TABLE `provider_source_source` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -332,4 +332,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-31  1:06:24
+-- Dump completed on 2018-01-02 23:43:40

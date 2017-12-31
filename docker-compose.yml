@@ -2,14 +2,15 @@ version: '2'
 services:
 
   php:
-      image: jguillermo/misa-accounting:php
+      image: jguillermo/alpine-php:nginx
       volumes:
         - ./app/:/var/www/html
+        - ./log/:/var/log/nginx/
       ports:
         - 8085:80
 
   mysql:
-    image: jguillermo/misa-accounting:mysql
+    image: jguillermo/docker-persist:mysql
     environment:
       MYSQL_ROOT_PASSWORD: toord
       MYSQL_USER : root
@@ -25,11 +26,11 @@ services:
       - 11211:11211
 
   solr:
-    image: jguillermo/misa-accounting:solr
+    image: jguillermo/docker-persist:solr
     ports:
       - 8983:8983
     volumes:
       - ./solr:/opt/solr/server/solr/mycores
       - ./app/export:/opt/solr/mydata
 
-#    # sudo chmod o+w -R solr
+    # sudo chmod o+w -R solr

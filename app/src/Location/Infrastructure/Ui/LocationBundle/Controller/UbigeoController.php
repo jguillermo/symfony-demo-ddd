@@ -35,6 +35,7 @@ class UbigeoController extends Controller
      * @Method({"GET"})
      * @param Request $request
      * @return JsonResponse
+     * @throws \MisaSdk\Common\Exception\BadRequest
      */
     public function searchUbigeoAction(Request $request)
     {
