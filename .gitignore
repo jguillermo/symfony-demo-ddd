@@ -15,7 +15,6 @@
 /vendor/
 /web/bundles/
 .idea
-composer.lock
 logs
 scripts/.composer/
 var/cache/
@@ -27,7 +26,6 @@ app/var/sessions
 .composer/*
 .ssh/
 app/vendor
-app/composer.lock
 app/web/build/*
 npm-debug.log*
 /log
