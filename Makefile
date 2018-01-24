@@ -42,6 +42,9 @@ build-db: ## Pull all images from registry
 test: ## Execute integration test
 	./script.sh test
 
+stress-test: ## Execute stress test
+	./script.sh stress-test
+
 cache: ## Pull all images from registry
 	./script.sh composer cache:clear
 
