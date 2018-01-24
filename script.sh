@@ -109,6 +109,18 @@ command_exists ()
     type "$1" &> /dev/null ;
 }
 
+stress_test ()
+{
+    while IFS=',' read -r col1 col2 col3
+    do
+       echo "***********************TEST********************************"
+       echo "$col3"
+       echo "***********************START********************************"
+       docker run --rm --net=host undcomercio/docker-cli-tool:apacheab -c "$col1" -n "$col2" "$col3"
+       echo "***********************END********************************"
+    done < ./app/tests/Stress/url.csv
+}
+
 app_install()
 {
    echo -e "\r"
@@ -116,7 +128,7 @@ app_install()
    if ! grep -q "$DOMAIN" /etc/hosts;
     then
       echo -e "\nSetting Virtualhost ....\n"
-      sudo su -c "echo '127.0.0.1 $DOMAIN' >> /etc/hosts"
+      sudo bash -c "echo '127.0.0.1 $DOMAIN' >> /etc/hosts"
       if [ $? -eq 0 ]; then
           echo -e "$CK  [Virtualhost] "
       else
@@ -182,6 +194,9 @@ case "$1" in
     ;;
 "test")
     app_test_cmd
+    ;;
+"stress-test")
+    stress_test ${@:2}
     ;;
 "build")
     app_docker_images_build ${@:2}

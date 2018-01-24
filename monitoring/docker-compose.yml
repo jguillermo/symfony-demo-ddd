@@ -1,0 +1,49 @@
+version: "2"
+
+services:
+  grafana:
+    image: grafana/grafana:4.6.3
+    depends_on:
+      - prometheus
+      - node-exporter
+      - cadvisor
+    ports:
+      - '3000:3000'
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+
+  prometheus:
+    image: prom/prometheus:v2.0.0
+    volumes:
+      - ./prometheus/:/etc/prometheus/
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    ports:
+      - '9090:9090'
+
+  node-exporter:
+    image: prom/node-exporter:v0.15.2
+    user: root
+    privileged: true
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^(/rootfs|/cgroup|)/(sys|proc|dev|host|etc|rootfs/var/lib/docker|rootfs/run/docker/netns)($$|/)'
+      - '--collector.filesystem.ignored-fs-types=^(cgroup)$$'
+    ports:
+      - '9100:9100'
+
+  cadvisor:
+    image: google/cadvisor:v0.27.3
+    volumes:
+      - /:/rootfs:ro
+      - /sys:/sys:ro
+      - /var/run:/var/run:rw
+      - /cgroup:/cgroup:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+    ports:
+      - '8080:8080'
