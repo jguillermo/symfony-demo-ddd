@@ -36,18 +36,17 @@ class BankAccount extends AbstractEntity
     /** @var Provider */
     private $provider;
 
-    /**
-     * @param Provider $provider
-     * @param $type
-     * @param $money
-     * @param $holderName
-     * @param Bank $bank
-     * @param AccountNumber $number
-     * @param string $id
-     * @return BankAccount
-     */
-    public static function create(Provider $provider, $type, $money, $holderName, Bank $bank, AccountNumber $number, $id = '')
-    {
+
+    public static function create(
+        Provider $provider,
+        $type,
+        $money,
+        $holderName,
+        Bank $bank,
+        AccountNumber
+        $number,
+        $id = self::EMPTY_ID
+    ) {
         $bankAccount = new self();
 
         $bankAccount->id = self::uuid($id)->getId();

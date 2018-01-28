@@ -40,6 +40,11 @@ services:
 
 
     ###   repository
+
+    #helper
+
+    Misa\Accounting\Application\Helper\PaymentHelperRepository: '@accounting.doctrine.helper.payment'
+
     #persistence provider
     Misa\Accounting\Domain\Provider\BankDetail\BankRepository: '@accounting.doctrine.provider.bank'
     Misa\Accounting\Domain\Product\ProductRepository: '@accounting.doctrine.product'
@@ -48,6 +53,8 @@ services:
     Misa\Accounting\Domain\Provider\Information\EmailRepository: '@accounting.doctrine.provider.email'
     Misa\Accounting\Domain\Provider\Information\PhoneRepository: '@accounting.doctrine.provider.phone'
     Misa\Accounting\Domain\Provider\BankDetail\BankAccountRepository: '@accounting.doctrine.provider.bankaccount'
+    Misa\Accounting\Domain\Payment\PaymentRepository: '@accounting.doctrine.payment'
+
     #searchEngine
     Misa\Accounting\Domain\Provider\ProviderSearchRepository: '@accounting.solr.provider.search'
     Misa\Accounting\Domain\Provider\Source\SearchRepository: '@accounting.solr.company.search'
@@ -87,6 +94,14 @@ services:
     accounting.doctrine.source:
         class: Misa\Accounting\Infrastructure\Persistence\Doctrine\SourceDoctrineRepository
         arguments: {$entityName: 'Misa\Accounting\Domain\Provider\Source\Source'}
+
+    accounting.doctrine.payment:
+        class: Misa\Accounting\Infrastructure\Persistence\Doctrine\PaymentDoctrineRepository
+        arguments: {$entityName: 'Misa\Accounting\Domain\Payment\Payment'}
+
+    accounting.doctrine.helper.payment:
+        class: Misa\Accounting\Infrastructure\Persistence\Doctrine\Helper\PaymentHelperDoctrineRepository
+
 
     accounting.solr.provider.search:
         class: Misa\Accounting\Infrastructure\SearchEngine\Solr\ProviderSolrRepository

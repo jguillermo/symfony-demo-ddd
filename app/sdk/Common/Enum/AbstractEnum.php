@@ -10,7 +10,7 @@ use ReflectionClass;
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2016, Orbis
  */
-abstract class AbstractEnum
+abstract class AbstractEnum implements MisaValidateEnum
 {
     private static $constCacheArray = null;
 

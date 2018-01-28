@@ -25,6 +25,11 @@ class MustValidateTest extends MisaTestCase
             {
                 return $this->mustValidate($item);
             }
+
+            protected function validate()
+            {
+                return true;
+            }
         };
     }
 

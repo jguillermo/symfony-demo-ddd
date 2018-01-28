@@ -38,8 +38,11 @@ class ProductController extends Controller
      * @param ProductSearchService $productSearchService
      * @param ProductListService $productListService
      */
-    public function __construct(ProductMngService $productMngService, ProductSearchService $productSearchService, ProductListService $productListService)
-    {
+    public function __construct(
+        ProductMngService $productMngService,
+        ProductSearchService $productSearchService,
+        ProductListService $productListService
+    ) {
         $this->productMngService = $productMngService;
         $this->productSearchService = $productSearchService;
         $this->productListService = $productListService;
@@ -52,6 +55,7 @@ class ProductController extends Controller
      * @param Request $request
      * @param LoggerInterface $logger
      * @return JsonResponse
+     * @throws \MisaSdk\Common\Exception\BadRequest
      */
     public function createProductAction(Request $request, LoggerInterface $logger)
     {
@@ -72,6 +76,7 @@ class ProductController extends Controller
      * @param Request $request
      * @param LoggerInterface $logger
      * @return JsonResponse
+     * @throws \MisaSdk\Common\Exception\BadRequest
      */
     public function updateProductAction($productId, Request $request, LoggerInterface $logger)
     {
@@ -92,6 +97,7 @@ class ProductController extends Controller
      * @param $productId
      * @param LoggerInterface $logger
      * @return JsonResponse
+     * @throws \MisaSdk\Common\Exception\BadRequest
      */
     public function deleteProductAction($productId, LoggerInterface $logger)
     {
@@ -107,6 +113,7 @@ class ProductController extends Controller
      * @Method({"GET"})
      * @param Request $request
      * @return JsonResponse
+     * @throws \MisaSdk\Common\Exception\BadRequest
      */
     public function searchProvidersAction(Request $request)
     {
@@ -120,6 +127,7 @@ class ProductController extends Controller
      * @param $productId
      * @param LoggerInterface $logger
      * @return JsonResponse
+     * @throws \MisaSdk\Common\Exception\BadRequest
      */
     public function getByIdProductAction($productId, LoggerInterface $logger)
     {

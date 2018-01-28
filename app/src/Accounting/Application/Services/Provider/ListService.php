@@ -35,8 +35,13 @@ class ListService
     private $providerRepository;
 
 
-    public function __construct(BankRepository $bankRepository, ItemRepository $itemRepository, ProductRepository $productRepository, ProviderListPresentation $providerListPresentation, ProviderRepository $providerRepository)
-    {
+    public function __construct(
+        BankRepository $bankRepository,
+        ItemRepository $itemRepository,
+        ProductRepository $productRepository,
+        ProviderListPresentation $providerListPresentation,
+        ProviderRepository $providerRepository
+    ) {
         $this->bankRepository = $bankRepository;
         $this->itemRepository = $itemRepository;
         $this->productRepository = $productRepository;

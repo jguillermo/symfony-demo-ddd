@@ -32,4 +32,9 @@ class PhoneInput extends AbstractInput
         $this->number = $number;
         $this->type = $type;
     }
+
+    protected function validate()
+    {
+        // TODO: Implement validate() method.
+    }
 }

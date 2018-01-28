@@ -66,7 +66,7 @@ class ProviderInput extends AbstractInput
         CollectionProductInput $providerProducts
     ) {
 
-        $this->validate($contacName);
+        $this->validateContacName($contacName);
 
         $this->source = null;
         $this->sourceId = null;
@@ -94,10 +94,14 @@ class ProviderInput extends AbstractInput
     }
 
 
-
-    private function validate($contacName)
+    protected function validateContacName($contacName)
     {
         $assert = new MisaAssertion();
         $assert::minLength($contacName, 8, "Ingrese el Nombre de contacto de minimo 8 caracteres");
+    }
+
+    protected function validate()
+    {
+        return true;
     }
 }

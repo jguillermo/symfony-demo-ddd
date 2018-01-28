@@ -66,6 +66,7 @@
         ],
         "cs": "phpcs",
         "cs-fix": "phpcbf",
+        "test": "phpunit --stop-on-failure",
         "integration-test": "phpunit -vc phpunitIntegration.xml --stop-on-failure"
     },
     "config": {

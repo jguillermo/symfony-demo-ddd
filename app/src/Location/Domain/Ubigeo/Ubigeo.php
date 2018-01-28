@@ -2,7 +2,6 @@
 
 namespace Misa\Location\Domain\Ubigeo;
 
-
 class Ubigeo
 {
     private $id;
