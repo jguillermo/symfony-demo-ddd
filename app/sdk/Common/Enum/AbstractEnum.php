@@ -139,4 +139,15 @@ abstract class AbstractEnum implements MisaValidateEnum
         $key = array_search($id, array_column($list, 'id'));
         return ($key === false ? '' : $list[$key]['name']);
     }
+
+    protected static function getEnumText($id, $data, $default = '')
+    {
+        $constants = self::getConstants();
+        foreach ($constants as $key => $value) {
+            if ($value === $id && isset($data[$key])) {
+                return $data[$key];
+            }
+        }
+        return $default;
+    }
 }

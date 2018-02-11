@@ -16,4 +16,10 @@ interface PaymentRepository
      * @return bool
      */
     public function persist(Payment $payment);
+
+    /**
+     * @param $userId
+     * @return Payment[]
+     */
+    public function findByUserId($userId);
 }

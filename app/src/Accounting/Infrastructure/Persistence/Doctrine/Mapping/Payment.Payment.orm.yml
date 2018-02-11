@@ -20,11 +20,15 @@ Misa\Accounting\Domain\Payment\Payment:
 
         amount:
             type: decimal
-            precision: 2
+            precision: 10
+            scale: 2
 
         amountType:
             type: smallint
 
+        userId:
+            type: string
+            length: 10
     manyToOne:
         product:
             targetEntity: Misa\Accounting\Domain\Product\Product

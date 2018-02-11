@@ -16,10 +16,15 @@ services:
 
     ###presentation
     Misa\Accounting\Presentation\Product\ListPresentation: ~
+    Misa\Accounting\Presentation\Product\ItemPresentation: ~
     Misa\Accounting\Presentation\Provider\ListPresentation: ~
-    Misa\Accounting\Presentation\Provider\ItemPresentation: ~
+    Misa\Accounting\Presentation\Payment\ListPresentation: ~
 
     ###    services
+    #payment
+    Misa\Accounting\Application\Services\Payment\MngService: ~
+    Misa\Accounting\Application\Services\Payment\ListService: ~
+
     #provider
     Misa\Accounting\Application\Services\Provider\MngService: ~
     Misa\Accounting\Application\Services\Provider\ListService: ~

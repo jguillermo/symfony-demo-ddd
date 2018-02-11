@@ -23,4 +23,14 @@ class AmountType extends AbstractEnum
             'SOLES' => 'Soles',
         ];
     }
+
+
+    public static function getSymbol($id)
+    {
+        $data = [
+            'DOLLAR' => '$',
+            'SOLES' => 'S/',
+        ];
+        return self::getEnumText($id, $data);
+    }
 }

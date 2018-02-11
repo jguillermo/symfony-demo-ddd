@@ -25,4 +25,12 @@ class PaymentDoctrineRepository extends DoctrineRepository implements PaymentRep
         $this->em->flush();
         return true;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function findByUserId($userId)
+    {
+        return $this->repository->findBy(['userId' => $userId]);
+    }
 }

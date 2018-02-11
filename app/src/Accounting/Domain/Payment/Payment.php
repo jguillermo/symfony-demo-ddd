@@ -43,6 +43,9 @@ class Payment extends AbstractEntity
     /** @var int */
     private $amountType;
 
+    /** @var string */
+    private $userId;
+
     public static function create(
         Product $product,
         DateTime $paidAt,
@@ -51,6 +54,7 @@ class Payment extends AbstractEntity
         Type $type,
         float $amount,
         int $amountType,
+        string $userId,
         string $id = self::EMPTY_ID
     ) : Payment {
 
@@ -63,6 +67,7 @@ class Payment extends AbstractEntity
         $payment->changeDocumentStatus(DocumentStatus::PICKUP);
         $payment->type = $type;
         $payment->amount = $amount;
+        $payment->userId = $userId;
         $payment->changeAmountType($amountType);
 
         return $payment;
@@ -82,5 +87,25 @@ class Payment extends AbstractEntity
             throw new BadRequest("Tipo de monto no válido");
         }
         $this->amountType = $amountType;
+    }
+
+    public function id(): string
+    {
+        return $this->id;
+    }
+
+    public function product(): Product
+    {
+        return $this->product;
+    }
+
+    public function amount(): float
+    {
+        return $this->amount;
+    }
+
+    public function amountType(): int
+    {
+        return $this->amountType;
     }
 }
