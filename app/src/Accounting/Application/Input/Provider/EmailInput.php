@@ -26,4 +26,9 @@ class EmailInput extends AbstractInput
     {
         $this->email = $email;
     }
+
+    protected function validate()
+    {
+        return true;
+    }
 }

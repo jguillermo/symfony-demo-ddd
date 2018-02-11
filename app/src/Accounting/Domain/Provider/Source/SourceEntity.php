@@ -54,7 +54,8 @@ class SourceEntity
     public function changeName($name)
     {
         if (! SourceType::isValidValue($name)) {
-            throw new BadRequest("El tipo de entidad no es corecto {$name}: [".SourceType::COMPANY.",".SourceType::USER."]");
+            $messaje = "El tipo de entidad no es corecto {$name}: [".SourceType::COMPANY.",".SourceType::USER."]";
+            throw new BadRequest($messaje);
         }
         $this->name = $name;
     }

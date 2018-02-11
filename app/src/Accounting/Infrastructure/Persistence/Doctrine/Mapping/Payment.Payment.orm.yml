@@ -1,0 +1,47 @@
+Misa\Accounting\Domain\Payment\Payment:
+    type: entity
+    table: payment
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        paidAt:
+            type: datetime
+
+        documentNumber:
+            type: string
+            length: 50
+
+        documentStatus:
+            type: smallint
+
+        amount:
+            type: decimal
+            precision: 2
+
+        amountType:
+            type: smallint
+
+    manyToOne:
+        product:
+            targetEntity: Misa\Accounting\Domain\Product\Product
+            joinColumns:
+                product_id:
+                    referencedColumnName: id
+
+        documentType:
+            targetEntity: Misa\Accounting\Domain\Payment\DocumentType
+            joinColumns:
+                document_type_id:
+                    referencedColumnName: id
+
+        type:
+            targetEntity: Misa\Accounting\Domain\Payment\Type
+            joinColumns:
+                type_id:
+                    referencedColumnName: id
+
+    lifecycleCallbacks: {  }

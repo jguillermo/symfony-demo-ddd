@@ -3,6 +3,7 @@
 namespace MisaSdk\Common\Test;
 
 use phpDocumentor\Reflection\Types\Self_;
+use Ramsey\Uuid\Uuid;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
@@ -34,6 +35,30 @@ abstract class MisaIntegrationTest extends WebTestCase
         } catch (\Exception $e) {
             $this->em = false;
         }
+    }
+
+    protected function toUnicode($txt)
+    {
+        $txt = str_replace('Á', '\u00c1', $txt);
+        $txt = str_replace('á', '\u00e1', $txt);
+        $txt = str_replace('É', '\u00c9', $txt);
+        $txt = str_replace('é', '\u00e9', $txt);
+        $txt = str_replace('Í', '\u00cd', $txt);
+        $txt = str_replace('í', '\u00ed', $txt);
+        $txt = str_replace('Ó', '\u00d3', $txt);
+        $txt = str_replace('ó', '\u00f3', $txt);
+        $txt = str_replace('Ú', '\u00da', $txt);
+        $txt = str_replace('ú', '\u00fa', $txt);
+        $txt = str_replace('Ü', '\u00dc', $txt);
+        $txt = str_replace('ü', '\u00fc', $txt);
+        $txt = str_replace('Ṅ', '\u00d1', $txt);
+        $txt = str_replace('ñ', '\u00f1', $txt);
+        return $txt;
+    }
+
+    protected function getUuid()
+    {
+        return Uuid::uuid4()->toString();
     }
 
     /**

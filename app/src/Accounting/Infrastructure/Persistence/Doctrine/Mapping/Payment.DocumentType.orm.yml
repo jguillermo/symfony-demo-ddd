@@ -1,0 +1,14 @@
+Misa\Accounting\Domain\Payment\DocumentType:
+    type: entity
+    table: payment_document_type
+    id:
+        id:
+            type: guid
+            id: true
+            generator:
+                strategy: NONE
+    fields:
+        description:
+            type: string
+            length: '50'
+    lifecycleCallbacks: {  }

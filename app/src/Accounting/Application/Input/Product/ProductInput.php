@@ -30,7 +30,7 @@ class ProductInput extends AbstractInput
         $this->validate();
     }
 
-    private function validate()
+    protected function validate()
     {
         $assert = new MisaAssertion();
 

@@ -56,4 +56,9 @@ class BankAccountInput extends AbstractInput
         $this->number = $number;
         $this->numberInterbank = $numberInterbank;
     }
+
+    protected function validate()
+    {
+        // TODO: Implement validate() method.
+    }
 }

@@ -83,7 +83,7 @@ class SourceInput extends AbstractInput
         $this->validate();
     }
 
-    private function validate()
+    protected function validate()
     {
         $assert = new MisaAssertion();
         if ($this->mustValidate($this->name)) {

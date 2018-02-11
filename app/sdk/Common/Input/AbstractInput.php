@@ -11,11 +11,17 @@ use MisaSdk\Common\Exception\AppException;
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */
-class AbstractInput
+abstract class AbstractInput
 {
     private $properties;
 
     protected $createValidate;
+
+    public function __construct($createValidate = true)
+    {
+        $this->createValidate = $createValidate;
+    }
+
 
     /**
      * verifica si un item se debe validar
@@ -54,4 +60,6 @@ class AbstractInput
     {
         throw new AppException("Invalid property '$name' with value '$value'");
     }
+
+    abstract protected function validate();
 }

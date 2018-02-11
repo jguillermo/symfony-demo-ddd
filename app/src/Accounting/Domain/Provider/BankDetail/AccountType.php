@@ -3,6 +3,7 @@
 namespace Misa\Accounting\Domain\Provider\BankDetail;
 
 use MisaSdk\Common\Enum\AbstractEnum;
+use MisaSdk\Common\Enum\MisaLabelEnum;
 
 /**
  * AccountType Class
@@ -11,7 +12,7 @@ use MisaSdk\Common\Enum\AbstractEnum;
  * @author Jose Guillermo <jguillermo@outlook.com>
  * @copyright (c) 2017, Orbis
  */
-class AccountType extends AbstractEnum
+class AccountType extends AbstractEnum implements MisaLabelEnum
 {
     const CURRENT = 1;
     const SAVING = 2;
