@@ -7,7 +7,6 @@ use Misa\Accounting\Infrastructure\Ui\AccountingBundle\DataFixtures\ORM\LoadPaym
 use Misa\Accounting\Infrastructure\Ui\AccountingBundle\DataFixtures\ORM\LoadProductData;
 use MisaSdk\Common\Test\CodeHttpException;
 use MisaSdk\Common\Test\MisaIntegrationTest;
-use Ramsey\Uuid\Uuid;
 
 /**
  * PaymentMngTest Class
@@ -39,7 +38,6 @@ class PaymentMngTest extends MisaIntegrationTest
                 $data[$paramName]=$newErrorValue;
             }
         }
-
 
         $this->expectException(CodeHttpException::class);
         $this->expectExceptionCode($errorCode);

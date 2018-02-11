@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20180210033512 extends AbstractMigration
+class Version20180211202027 extends AbstractMigration
 {
     public function up(Schema $schema)
     {
@@ -24,7 +24,7 @@ class Version20180210033512 extends AbstractMigration
         $this->addSql('CREATE TABLE payment_type (id CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', description VARCHAR(50) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE provider_information_phone (id CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', provider_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', number VARCHAR(15) NOT NULL, type SMALLINT NOT NULL, INDEX IDX_44033A65A53A8AA (provider_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE provider_provider (id CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', source_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', contac_name VARCHAR(50) NOT NULL, page_web VARCHAR(100) DEFAULT NULL, UNIQUE INDEX UNIQ_DA861D75953C1C61 (source_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
-        $this->addSql('CREATE TABLE payment (id CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', product_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', document_type_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', type_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', paid_at DATETIME NOT NULL, document_number VARCHAR(50) NOT NULL, document_status SMALLINT NOT NULL, amount NUMERIC(2, 0) NOT NULL, amount_type SMALLINT NOT NULL, INDEX IDX_6D28840D4584665A (product_id), INDEX IDX_6D28840D61232A4F (document_type_id), INDEX IDX_6D28840DC54C8C93 (type_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE payment (id CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', product_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', document_type_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', type_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', paid_at DATETIME NOT NULL, document_number VARCHAR(50) NOT NULL, document_status SMALLINT NOT NULL, amount NUMERIC(10, 2) NOT NULL, amount_type SMALLINT NOT NULL, user_id VARCHAR(10) NOT NULL, INDEX IDX_6D28840D4584665A (product_id), INDEX IDX_6D28840D61232A4F (document_type_id), INDEX IDX_6D28840DC54C8C93 (type_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE payment_document_type (id CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', description VARCHAR(50) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('CREATE TABLE product_product (id CHAR(36) NOT NULL COMMENT \'(DC2Type:guid)\', item_id CHAR(36) DEFAULT NULL COMMENT \'(DC2Type:guid)\', name VARCHAR(50) NOT NULL, INDEX IDX_2931F1D126F525E (item_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE = InnoDB');
         $this->addSql('ALTER TABLE provider_bankdetail_bankaccount ADD CONSTRAINT FK_86923C5F11C8FB41 FOREIGN KEY (bank_id) REFERENCES provider_bankdetail (id)');

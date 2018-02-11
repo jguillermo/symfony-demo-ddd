@@ -65,7 +65,8 @@ class MngService
             $data->documentNumber(),
             $paymentType,
             $data->amount(),
-            $data->amountType()
+            $data->amountType(),
+            '1'// este dato debe venir de la session
         );
         $this->paymentRepository->persist($payment);
 

@@ -23,9 +23,13 @@ class PaymentController extends Controller
     /** @var Payment\MngService */
     private $paymentMngService;
 
-    public function __construct(Payment\MngService $paymentMngService)
+    /** @var Payment\ListService */
+    private $paymentListService;
+
+    public function __construct(Payment\MngService $paymentMngService, Payment\ListService $paymentListService)
     {
         $this->paymentMngService = $paymentMngService;
+        $this->paymentListService = $paymentListService;
     }
 
 
@@ -34,6 +38,7 @@ class PaymentController extends Controller
      * @Method({"POST"})
      * @param Request $request
      * @return JsonResponse
+     * @throws \MisaSdk\Common\Exception\BadRequest
      */
     public function createPaymentAction(Request $request)
     {
@@ -50,5 +55,18 @@ class PaymentController extends Controller
         ));
 
         return new JsonResponse(['id' => $id]);
+    }
+
+    /**
+     * @Route("/report/{userId}", name="accounting_payment_report_user")
+     * @Method({"GET"})
+     * @return JsonResponse
+     */
+    public function getReportPaymentUserAction($userId)
+    {
+
+        $data = $this->paymentListService->findByUserId($userId);
+
+        return new JsonResponse($data);
     }
 }
