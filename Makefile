@@ -42,6 +42,9 @@ build-db: ## Pull all images from registry
 test: ## Execute integration test
 	./script.sh test
 
+test-light: ## Execute integration test
+	docker-compose -f docker-compose.test.yml run --rm cli
+
 test-unit: ## Execute integration test
 	./script.sh composer test
 
